@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://ckwxsg8n57wix"]
+
+[ext_resource type="Script" uid="uid://c1ixd77bw22cn" path="res://scenes/player.gd" id="1_3vyb7"]
+[ext_resource type="PackedScene" uid="uid://1ihxbm3koeot" path="res://scenes/seed.tscn" id="2_g2els"]
+
+[sub_resource type="Gradient" id="Gradient_u8vuu"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_3vyb7"]
+gradient = SubResource("Gradient_u8vuu")
+
+[node name="Player" type="Node2D"]
+script = ExtResource("1_3vyb7")
+seed = ExtResource("2_g2els")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1, 0)
+scale = Vector2(1, 0.140625)
+texture = SubResource("GradientTexture2D_3vyb7")
