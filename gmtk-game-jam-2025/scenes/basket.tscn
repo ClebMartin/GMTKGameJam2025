@@ -6,7 +6,7 @@
 b = Vector2(312, 0)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_kcd6v"]
-a = Vector2(0, -99)
+a = Vector2(0, -51)
 b = Vector2(0, 289)
 
 [node name="Basket" type="StaticBody2D"]
@@ -21,15 +21,15 @@ position = Vector2(-153, -1)
 shape = SubResource("SegmentShape2D_yyrsc")
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
-position = Vector2(-156, -192.29)
+position = Vector2(-156, -167.602)
 rotation = 1.5708
-scale = Vector2(401.98, 8.90906)
+scale = Vector2(352.605, 8.90906)
 texture = SubResource("PlaceholderTexture2D_kcd6v")
 
 [node name="Sprite2D3" type="Sprite2D" parent="."]
-position = Vector2(155, -191.557)
+position = Vector2(155, -165.597)
 rotation = -3.14159
-scale = Vector2(10.4877, 397.973)
+scale = Vector2(10.4877, 346.053)
 texture = SubResource("PlaceholderTexture2D_kcd6v")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
