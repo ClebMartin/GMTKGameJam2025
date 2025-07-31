@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://igw3ym3x2ynf"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_kcd6v"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_yyrsc"]
+b = Vector2(312, 0)
+
+[node name="Basket" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 5)
+scale = Vector2(320, 10)
+texture = SubResource("PlaceholderTexture2D_kcd6v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-152, 0)
+shape = SubResource("SegmentShape2D_yyrsc")
