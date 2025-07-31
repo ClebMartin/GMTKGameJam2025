@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://bqcxun35pi24g"]
+
+[ext_resource type="Script" uid="uid://dh7aostyc44k7" path="res://scripts/tulip.gd" id="1_qthxr"]
+[ext_resource type="Texture2D" uid="uid://bswcj836i2ytv" path="res://assets/sprites/tulip.png" id="2_qthxr"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_254dx"]
+bounce = 0.2
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_p7eyx"]
+radius = 52.0
+height = 104.0
+
+[node name="Tulip" type="RigidBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_254dx")
+max_contacts_reported = 1
+script = ExtResource("1_qthxr")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1, 5.68434e-14)
+scale = Vector2(0.380605, 0.380605)
+texture = ExtResource("2_qthxr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_p7eyx")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,4 @@
+extends Node
+class_name SUIKA
+
+enum DROPPABLES {SEED = 0, LEAF = 1, DAISY = 2, CARNATION = 3, BLUEBONNET = 4, TULIP = 5, ROSE = 6, SUNFLOWER = 7}

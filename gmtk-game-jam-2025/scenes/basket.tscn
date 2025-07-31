@@ -1,41 +1,32 @@
-[gd_scene load_steps=4 format=3 uid="uid://igw3ym3x2ynf"]
+[gd_scene load_steps=5 format=3 uid="uid://igw3ym3x2ynf"]
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_kcd6v"]
+[ext_resource type="Texture2D" uid="uid://du3h2edfrwmnj" path="res://assets/sprites/basket.png" id="1_ccfdg"]
 
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_yyrsc"]
-b = Vector2(312, 0)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ccfdg"]
+size = Vector2(343, 20)
 
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_kcd6v"]
-a = Vector2(0, -51)
-b = Vector2(0, 289)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_idgsc"]
+size = Vector2(22, 286)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o74ig"]
+size = Vector2(20, 286)
 
 [node name="Basket" type="StaticBody2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, 5)
-scale = Vector2(320, 10)
-texture = SubResource("PlaceholderTexture2D_kcd6v")
+visible = false
+position = Vector2(-3.8147e-06, -192)
+scale = Vector2(0.530471, 0.530471)
+texture = ExtResource("1_ccfdg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-153, -1)
-shape = SubResource("SegmentShape2D_yyrsc")
-
-[node name="Sprite2D2" type="Sprite2D" parent="."]
-position = Vector2(-156, -167.602)
-rotation = 1.5708
-scale = Vector2(352.605, 8.90906)
-texture = SubResource("PlaceholderTexture2D_kcd6v")
-
-[node name="Sprite2D3" type="Sprite2D" parent="."]
-position = Vector2(155, -165.597)
-rotation = -3.14159
-scale = Vector2(10.4877, 346.053)
-texture = SubResource("PlaceholderTexture2D_kcd6v")
+position = Vector2(-0.5, 8)
+shape = SubResource("RectangleShape2D_ccfdg")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2(-152, -290)
-shape = SubResource("SegmentShape2D_kcd6v")
+position = Vector2(183, -126)
+shape = SubResource("RectangleShape2D_idgsc")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
-position = Vector2(151, -291)
-shape = SubResource("SegmentShape2D_kcd6v")
+position = Vector2(-182, -125)
+shape = SubResource("RectangleShape2D_o74ig")

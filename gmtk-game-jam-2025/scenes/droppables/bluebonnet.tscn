@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://cv8wv7w7wmuoj"]
+
+[ext_resource type="Script" uid="uid://d1jaolc55hsu8" path="res://scripts/bluebonnet.gd" id="1_x183s"]
+[ext_resource type="Texture2D" uid="uid://br8e7jioko3qp" path="res://assets/sprites/bluebonnet.png" id="1_yx3r5"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_254dx"]
+bounce = 0.2
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_p7eyx"]
+radius = 20.0
+height = 110.0
+
+[node name="Bluebonnet" type="RigidBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_254dx")
+max_contacts_reported = 1
+script = ExtResource("1_x183s")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 2.38419e-07)
+scale = Vector2(0.120939, 0.120939)
+texture = ExtResource("1_yx3r5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_p7eyx")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
