@@ -1,0 +1,68 @@
+[gd_scene load_steps=11 format=3 uid="uid://ckwxsg8n57wix"]
+
+[ext_resource type="Script" uid="uid://c1ixd77bw22cn" path="res://scripts/player.gd" id="1_3vyb7"]
+[ext_resource type="Texture2D" uid="uid://cx6hhqr6t3exl" path="res://assets/sprites/hand.jpeg" id="3_qhqgy"]
+[ext_resource type="Texture2D" uid="uid://dwav2g2fhlsfl" path="res://assets/sprites/seed.png" id="4_qlg0r"]
+[ext_resource type="Texture2D" uid="uid://daapepie3qhbt" path="res://assets/sprites/daisy.png" id="5_fjrip"]
+[ext_resource type="Texture2D" uid="uid://coshgaemn2pao" path="res://assets/sprites/leaf.png" id="5_tuyoq"]
+[ext_resource type="Texture2D" uid="uid://dr6yo3cbvuf8g" path="res://assets/sprites/carnation.png" id="6_smehm"]
+[ext_resource type="Texture2D" uid="uid://br8e7jioko3qp" path="res://assets/sprites/bluebonnet.png" id="7_fjrip"]
+[ext_resource type="Texture2D" uid="uid://bsghd26ny8bbu" path="res://assets/sprites/rose.png" id="8_smehm"]
+[ext_resource type="Texture2D" uid="uid://t1y2ht3fbjh8" path="res://assets/sprites/sunflower.png" id="9_ur7pv"]
+[ext_resource type="Texture2D" uid="uid://bswcj836i2ytv" path="res://assets/sprites/tulip.png" id="10_y4r1p"]
+
+[node name="Player" type="Node2D"]
+script = ExtResource("1_3vyb7")
+
+[node name="Hand" type="Sprite2D" parent="."]
+position = Vector2(64, -24)
+scale = Vector2(0.184549, 0.140625)
+texture = ExtResource("3_qhqgy")
+
+[node name="Seed" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(1, 7)
+scale = Vector2(0.0479516, 0.0479516)
+texture = ExtResource("4_qlg0r")
+
+[node name="Leaf" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(2, 7)
+scale = Vector2(0.0816733, 0.0816733)
+texture = ExtResource("5_tuyoq")
+
+[node name="Daisy" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(2, 7)
+scale = Vector2(0.0816733, 0.0816733)
+texture = ExtResource("5_fjrip")
+
+[node name="Carnation" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(9, 17)
+scale = Vector2(0.240323, 0.240323)
+texture = ExtResource("6_smehm")
+
+[node name="Bluebonnet" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(1, 53)
+scale = Vector2(0.207692, 0.207692)
+texture = ExtResource("7_fjrip")
+
+[node name="Tulip" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(1, 13)
+scale = Vector2(0.242537, 0.242537)
+texture = ExtResource("10_y4r1p")
+
+[node name="Rose" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(8, 16)
+scale = Vector2(0.181818, 0.181818)
+texture = ExtResource("8_smehm")
+
+[node name="Sunflower" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(6.9789, 16.1932)
+scale = Vector2(0.322578, 0.322578)
+texture = ExtResource("9_ur7pv")

@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://crsh2vfov83tc"]
+
+[ext_resource type="Script" uid="uid://jh7lhqd1k3wq" path="res://scripts/carnation.gd" id="1_ght7o"]
+[ext_resource type="Texture2D" uid="uid://dr6yo3cbvuf8g" path="res://assets/sprites/carnation.png" id="2_ght7o"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_254dx"]
+bounce = 0.2
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_p7eyx"]
+radius = 54.0
+height = 108.0
+
+[node name="Carnation" type="RigidBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_254dx")
+max_contacts_reported = 1
+script = ExtResource("1_ght7o")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.330626, 0.330626)
+texture = ExtResource("2_ght7o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_p7eyx")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

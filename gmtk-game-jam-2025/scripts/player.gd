@@ -1,0 +1,84 @@
+extends Node2D
+
+@export var PLAYER_SPEED = 5
+@export var DROP_COOLDOWN = 60
+
+# var _seed_scene = preload("res://scenes/droppables/seed1.tscn")
+@onready var _seed_img = $Seed
+@onready var _leaf_img = $Leaf
+@onready var _daisy_img = $Daisy
+@onready var _carnation_img = $Carnation
+# Technically, right now, player will never anything above a carnation
+# but, in order to not have a possible bug, I'll add them here.
+@onready var _bluebonnet_img = $Bluebonnet
+@onready var _tulip_img = $Tulip
+@onready var _rose_img = $Rose
+@onready var _sunflower_img = $Sunflower
+
+@onready var _rng = RandomNumberGenerator.new()
+
+# indexes same as GameScript
+var _droppable_img_list
+
+signal dropped_droppable
+
+var _current_droppable
+var _current_droppable_id = 0
+
+var _tick = 0
+var _waiting_to_spawn = false
+
+func _pick_random_droppable():
+	# only return index for seed, leaf, daisy, or carnation.
+	return _rng.randi_range(0, 3)
+	
+func _spawn_new_droppable():
+	_current_droppable_id = _pick_random_droppable()
+	_current_droppable = _droppable_img_list[_current_droppable_id]
+	_current_droppable.show()
+
+func _ready():
+	_set_up_list()
+	_spawn_new_droppable()
+
+func _physics_process(delta):
+	# Follow mouse, don't change y value
+	# Could lerp this!
+	# self.position.x = get_viewport().get_mouse_position().x
+	
+	if Input.is_action_pressed("left"):
+		#do stuff
+		self.position.x -= PLAYER_SPEED
+	if Input.is_action_pressed('right'):
+		#do stuff
+		self.position.x += PLAYER_SPEED
+	if Input.is_action_pressed("drop") && !_waiting_to_spawn:
+		_drop()
+
+	if _waiting_to_spawn:
+		_ticker()
+	pass
+	
+func _drop():
+	_current_droppable.hide()
+	_waiting_to_spawn = true
+	dropped_droppable.emit(position, _current_droppable_id)
+
+func _ticker():
+	_tick += 1
+	if _tick > DROP_COOLDOWN:
+		_tick = 0
+		_spawn_new_droppable()
+		_waiting_to_spawn = false
+
+func _set_up_list():
+	_droppable_img_list = [
+		_seed_img,
+		_leaf_img,
+		_daisy_img,
+		_carnation_img,
+		_bluebonnet_img,
+		_tulip_img,
+		_rose_img,
+		_sunflower_img
+	]

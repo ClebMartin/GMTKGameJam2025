@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://c223yy1s2dw36"]
+
+[ext_resource type="Texture2D" uid="uid://t1y2ht3fbjh8" path="res://assets/sprites/sunflower.png" id="1_2mwme"]
+[ext_resource type="Script" uid="uid://cobwgs1bgy07b" path="res://scripts/sunflower.gd" id="1_mc24c"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_254dx"]
+bounce = 0.2
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_p7eyx"]
+radius = 84.0
+height = 168.0
+
+[node name="Sunflower" type="RigidBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_254dx")
+max_contacts_reported = 1
+script = ExtResource("1_mc24c")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1, -2.72848e-12)
+scale = Vector2(0.482515, 0.482515)
+texture = ExtResource("1_2mwme")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_p7eyx")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

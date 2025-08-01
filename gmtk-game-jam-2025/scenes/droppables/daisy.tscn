@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://qbynrxgaf2n3"]
+
+[ext_resource type="Script" uid="uid://vfvf7uc8lc76" path="res://scripts/daisy.gd" id="1_dwdjv"]
+[ext_resource type="Texture2D" uid="uid://daapepie3qhbt" path="res://assets/sprites/daisy.png" id="2_dwdjv"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_254dx"]
+bounce = 0.2
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_p7eyx"]
+radius = 30.0
+height = 60.0
+
+[node name="Daisy" type="RigidBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_254dx")
+max_contacts_reported = 1
+script = ExtResource("1_dwdjv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.119316, 0.119316)
+texture = ExtResource("2_dwdjv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_p7eyx")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

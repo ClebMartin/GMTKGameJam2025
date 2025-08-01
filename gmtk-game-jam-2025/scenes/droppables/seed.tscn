@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://dcw4nt8pl5876"]
+
+[ext_resource type="Texture2D" uid="uid://dwav2g2fhlsfl" path="res://assets/sprites/seed.png" id="1_bsos0"]
+[ext_resource type="Script" uid="uid://cqrco5242e1xq" path="res://scripts/seed.gd" id="1_m4twh"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_254dx"]
+bounce = 0.2
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_p7eyx"]
+radius = 15.0
+height = 40.0
+
+[node name="Seed" type="RigidBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_254dx")
+max_contacts_reported = 1
+script = ExtResource("1_m4twh")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.0572626, 0.0572626)
+texture = ExtResource("1_bsos0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_p7eyx")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

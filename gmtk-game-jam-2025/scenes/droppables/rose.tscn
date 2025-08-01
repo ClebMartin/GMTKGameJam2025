@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://sshjt7w4jrp2"]
+
+[ext_resource type="Script" uid="uid://bcsg1qk5747ra" path="res://scripts/rose.gd" id="1_62qcp"]
+[ext_resource type="Texture2D" uid="uid://bsghd26ny8bbu" path="res://assets/sprites/rose.png" id="2_62qcp"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_254dx"]
+bounce = 0.2
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_p7eyx"]
+radius = 62.0
+height = 124.0
+
+[node name="Rose" type="RigidBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_254dx")
+max_contacts_reported = 1
+script = ExtResource("1_62qcp")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1, -13)
+scale = Vector2(0.238839, 0.238839)
+texture = ExtResource("2_62qcp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_p7eyx")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
