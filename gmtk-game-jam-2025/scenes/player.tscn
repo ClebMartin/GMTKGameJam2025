@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://ckwxsg8n57wix"]
 
 [ext_resource type="Script" uid="uid://c1ixd77bw22cn" path="res://scripts/player.gd" id="1_3vyb7"]
-[ext_resource type="Texture2D" uid="uid://cx6hhqr6t3exl" path="res://assets/sprites/hand.jpeg" id="3_qhqgy"]
+[ext_resource type="Texture2D" uid="uid://b8ndxhpasyptd" path="res://assets/sprites/hand.png" id="2_y4r1p"]
 [ext_resource type="Texture2D" uid="uid://dwav2g2fhlsfl" path="res://assets/sprites/seed.png" id="4_qlg0r"]
 [ext_resource type="Texture2D" uid="uid://daapepie3qhbt" path="res://assets/sprites/daisy.png" id="5_fjrip"]
 [ext_resource type="Texture2D" uid="uid://coshgaemn2pao" path="res://assets/sprites/leaf.png" id="5_tuyoq"]
@@ -15,9 +15,9 @@
 script = ExtResource("1_3vyb7")
 
 [node name="Hand" type="Sprite2D" parent="."]
-position = Vector2(64, -24)
-scale = Vector2(0.184549, 0.140625)
-texture = ExtResource("3_qhqgy")
+position = Vector2(36.9303, -17.2822)
+scale = Vector2(0.115698, 0.115698)
+texture = ExtResource("2_y4r1p")
 
 [node name="Seed" type="Sprite2D" parent="."]
 visible = false

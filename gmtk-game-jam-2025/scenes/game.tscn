@@ -1,22 +1,30 @@
-[gd_scene load_steps=4 format=3 uid="uid://bpbhwm5mdm2e0"]
+[gd_scene load_steps=6 format=3 uid="uid://bpbhwm5mdm2e0"]
 
 [ext_resource type="Script" uid="uid://dg0mexjv5h77a" path="res://scripts/game.gd" id="1_lbhrr"]
+[ext_resource type="Texture2D" uid="uid://clbrep7hsqkjj" path="res://assets/sprites/texturePaper.jpg" id="2_iywne"]
+[ext_resource type="Texture2D" uid="uid://du3h2edfrwmnj" path="res://assets/sprites/basket.png" id="2_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://igw3ym3x2ynf" path="res://scenes/basket.tscn" id="2_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://ckwxsg8n57wix" path="res://scenes/player.tscn" id="3_lnu2h"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_lbhrr")
 
-[node name="Blue" type="ColorRect" parent="."]
+[node name="Paper" type="ColorRect" parent="."]
 offset_right = 960.0
 offset_bottom = 543.0
-color = Color(0.433319, 0.635554, 0.29448, 1)
+color = Color(0.909217, 0.88742, 0.860602, 1)
 
-[node name="Green" type="ColorRect" parent="."]
+[node name="Ink" type="ColorRect" parent="."]
 offset_top = 454.0
 offset_right = 960.0
 offset_bottom = 542.0
-color = Color(0.227451, 0.45098, 0.317647, 1)
+color = Color(0.754425, 0.70996, 0.64893, 1)
+
+[node name="Basket_Sprite" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.352941)
+position = Vector2(492, 268.25)
+scale = Vector2(0.519084, 0.676593)
+texture = ExtResource("2_lbhrr")
 
 [node name="Basket" parent="." instance=ExtResource("2_yqjtg")]
 position = Vector2(492, 498)
@@ -26,5 +34,13 @@ position = Vector2(365, 123)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(480, 272)
+
+[node name="TexturePaper" type="Sprite2D" parent="."]
+visible = false
+self_modulate = Color(1, 1, 1, 0.137255)
+position = Vector2(480, 271)
+rotation = 1.5708
+scale = Vector2(0.278245, 0.336446)
+texture = ExtResource("2_iywne")
 
 [connection signal="dropped_droppable" from="Player" to="." method="_on_player_dropped_droppable"]
