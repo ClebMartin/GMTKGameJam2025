@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bpbhwm5mdm2e0"]
+[gd_scene load_steps=6 format=3 uid="uid://bpbhwm5mdm2e0"]
 
 [ext_resource type="Script" uid="uid://dg0mexjv5h77a" path="res://scripts/game.gd" id="1_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://igw3ym3x2ynf" path="res://scenes/basket.tscn" id="2_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://ckwxsg8n57wix" path="res://scenes/player.tscn" id="3_lnu2h"]
 [ext_resource type="FontFile" uid="uid://bylebo6njjpq" path="res://assets/fonts/OldScientificIllustration.ttf" id="4_lbhrr"]
+[ext_resource type="PackedScene" uid="uid://c2qa0oan4fjgc" path="res://scenes/utils/BackgroundMusic.tscn" id="5_iywne"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_lbhrr")
@@ -48,5 +49,7 @@ theme_override_fonts/font = ExtResource("4_lbhrr")
 theme_override_font_sizes/font_size = 200
 text = "0"
 horizontal_alignment = 1
+
+[node name="BackgroundMusic" parent="." instance=ExtResource("5_iywne")]
 
 [connection signal="dropped_droppable" from="Player" to="." method="_on_player_dropped_droppable"]
