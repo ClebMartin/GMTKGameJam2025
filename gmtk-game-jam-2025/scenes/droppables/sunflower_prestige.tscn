@@ -1,0 +1,34 @@
+[gd_scene load_steps=7 format=3 uid="uid://cw3edxb5swicm"]
+
+[ext_resource type="Script" uid="uid://b2kuekf5s2e6m" path="res://scripts/sunflower_prestige.gd" id="1_73cyt"]
+[ext_resource type="Texture2D" uid="uid://t1y2ht3fbjh8" path="res://assets/sprites/sunflower.png" id="2_73cyt"]
+[ext_resource type="Shader" uid="uid://diacvormsr5mw" path="res://assets/shaders/Moving-Rainbow-Gradient.gdshader" id="2_ea063"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_254dx"]
+bounce = 0.2
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_no27n"]
+shader = ExtResource("2_ea063")
+shader_parameter/strength = 0.3
+shader_parameter/speed = 0.5
+shader_parameter/angle = 45.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_p7eyx"]
+radius = 84.0
+height = 168.0
+
+[node name="Sunflower_Prestige" type="RigidBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_254dx")
+max_contacts_reported = 1
+script = ExtResource("1_73cyt")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_no27n")
+position = Vector2(-1, -2.72848e-12)
+scale = Vector2(0.482515, 0.482515)
+texture = ExtResource("2_73cyt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_p7eyx")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

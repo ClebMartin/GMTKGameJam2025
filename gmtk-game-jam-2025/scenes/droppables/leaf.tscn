@@ -1,21 +1,26 @@
 [gd_scene load_steps=5 format=3 uid="uid://b6dhhmlqwps0j"]
 
 [ext_resource type="Script" uid="uid://dnx8a8x3gwhgg" path="res://scripts/leaf.gd" id="1_e748q"]
-[ext_resource type="Texture2D" uid="uid://coshgaemn2pao" path="res://assets/sprites/leaf.png" id="2_e748q"]
+[ext_resource type="Texture2D" uid="uid://bpawxcvvse6mh" path="res://assets/sprites/leaf_botannical.png" id="2_e748q"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_bg318"]
 bounce = 0.2
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_m4twh"]
+radius = 14.1421
+height = 46.669
 
 [node name="Leaf" type="RigidBody2D"]
 physics_material_override = SubResource("PhysicsMaterial_bg318")
 script = ExtResource("1_e748q")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-rotation = -0.750492
-scale = Vector2(0.0572626, 0.0572626)
+position = Vector2(-1, 0)
+rotation = -3.14159
+scale = Vector2(0.170034, 0.170034)
 texture = ExtResource("2_e748q")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, -1)
+rotation = -0.785398
 shape = SubResource("CapsuleShape2D_m4twh")

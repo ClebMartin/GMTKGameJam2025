@@ -1,0 +1,102 @@
+[gd_scene load_steps=8 format=3 uid="uid://cb4h05mtg245f"]
+
+[ext_resource type="Script" uid="uid://mqjxpwvby6ad" path="res://scripts/main_menu.gd" id="1_qkhwq"]
+[ext_resource type="Texture2D" uid="uid://y8nuelh5vbdp" path="res://assets/sprites/safwan-thottoli-FZBoZOmI9hs-unsplash.jpg" id="2_3d1i7"]
+[ext_resource type="FontFile" uid="uid://bylebo6njjpq" path="res://assets/fonts/OldScientificIllustration.ttf" id="3_48ign"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_48ign"]
+size = Vector2(911, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c7uy4"]
+size = Vector2(33, 554)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qkhwq"]
+size = Vector2(38.5, 546.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3d1i7"]
+size = Vector2(1028.5, 44)
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qkhwq")
+
+[node name="ParchmentBackground" type="Sprite2D" parent="."]
+position = Vector2(477.118, 271.66)
+rotation = 1.5708
+scale = Vector2(0.13565, 0.159909)
+texture = ExtResource("2_3d1i7")
+
+[node name="SpawnerArea2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpawnerArea2D"]
+position = Vector2(473, -61)
+shape = SubResource("RectangleShape2D_48ign")
+disabled = true
+
+[node name="CollisionArea2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionArea2D"]
+position = Vector2(-17, 269)
+shape = SubResource("RectangleShape2D_c7uy4")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="CollisionArea2D"]
+position = Vector2(977.75, 272.75)
+shape = SubResource("RectangleShape2D_qkhwq")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="CollisionArea2D"]
+position = Vector2(483.75, 566)
+shape = SubResource("RectangleShape2D_3d1i7")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+z_index = 5
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -53.0
+offset_top = -33.0
+offset_right = 53.0
+offset_bottom = 33.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("3_48ign")
+theme_override_font_sizes/font_size = 128
+text = "Florum Calthus"
+
+[node name="StartButton" type="Button" parent="CenterContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_48ign")
+theme_override_font_sizes/font_size = 64
+text = "Start Game"
+
+[node name="QuitButton" type="Button" parent="CenterContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_48ign")
+theme_override_font_sizes/font_size = 64
+text = "Quit
+"
+
+[node name="Attribution" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_48ign")
+theme_override_font_sizes/font_size = 42
+text = "Shelbyte Studios"
+horizontal_alignment = 1
