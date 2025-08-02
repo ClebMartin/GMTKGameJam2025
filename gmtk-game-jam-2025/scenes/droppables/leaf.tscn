@@ -4,7 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://coshgaemn2pao" path="res://assets/sprites/leaf.png" id="2_e748q"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_254dx"]
-bounce = 0.2
+friction = 0.6
+bounce = 0.1
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_p7eyx"]
 radius = 18.0
@@ -12,7 +13,7 @@ height = 36.0
 
 [node name="Leaf" type="RigidBody2D"]
 physics_material_override = SubResource("PhysicsMaterial_254dx")
-gravity_scale = 0.5
+gravity_scale = 0.4
 max_contacts_reported = 1
 angular_velocity = 3.14159
 script = ExtResource("1_e748q")

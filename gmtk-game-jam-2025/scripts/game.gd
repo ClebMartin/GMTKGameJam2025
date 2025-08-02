@@ -23,9 +23,14 @@ var _current_droppable
 
 var _droppable_list = [_seed_scene, _leaf_scene, _daisy_scene, _carnation_scene, _bluebonnet_scene, _tulip_scene, _rose_scene, _sunflower_scene, _seed_prestige_scene, _leaf_prestige_scene, _daisy_prestige_scene, _carnation_prestige_scene, _bluebonnet_prestige_scene, _tulip_prestige_scene, _rose_prestige_scene, _sunflower_prestige_scene]
 
-@onready var ScoreLabel = $ScoreLabel
+@onready var ScoreLabel = $ScoreGroup/ScoreLabel
 var _score = 0
 var _drop_value = 1 # score addition for everytime you successfully drop a droppable
+
+@onready var NumFlowerLabel = $NumFlowerGroup/NumFlowerLabel
+var _num_flowers_dropped = 0
+
+@onready var _rng = RandomNumberGenerator.new()
 
 func _ready() -> void:
 	ScoreLabel.text = str(_score)
@@ -36,37 +41,48 @@ func _physics_process(delta: float) -> void:
 		print("Do we show a pause menu?")
 	# if _waiting_to_spawn:
 
-func _spawn_droppable(pos, droppable_id):
+func _spawn_droppable(pos, droppable_id, rot = 0):
 	_current_droppable = _droppable_list[droppable_id].instantiate()
 	add_child(_current_droppable)
 	# _current_droppable.droppable_collided.connect(_spawn_next_evolution)
 	_current_droppable.droppable_collided.connect(_spawn_next_evolution)
 	_current_droppable.position = pos
+	_current_droppable.rotation = rot
 
 func _on_player_dropped_droppable(pos, droppable_id) -> void:
 	# when player immediately drops a flower
 	_spawn_droppable(pos, droppable_id)
 	_set_score(_drop_value)
+	_increment_num_flowers_dropped()
 
-func _spawn_next_evolution(position, droppable_id):
+func _spawn_next_evolution(position, droppable_id, isPrestiged = false):
 	# This is where the check happens to increase to next evolution
 	# If we put powerups into Enum/etc. (which we should),
 	# This check will need to be more robust so that sunflower doesn't turn
 	# into Bumblebee, etc.
 	var droppable_id_to_spawn = droppable_id + 1
 	
+	if isPrestiged and droppable_id_to_spawn < 8:
+		droppable_id_to_spawn += 8
+	
+	# droppable multiplier set here
+	
 	# If prestiged sunflower combine, created normal prestiged seed
 	# LOOOOOOOOOOOOOOOOOOOOOOOOOP
-	if droppable_id_to_spawn >= 15:
+	if droppable_id_to_spawn > 15:
 		droppable_id_to_spawn = 8
+	
+	# Make Spawnable rotated on instantiate
+	var rotate = _rng.randi_range(0, 60)
+	if _rng.randi_range(0, 1) == 0:
+		rotate *= -1
 		
-	_spawn_droppable(position, droppable_id_to_spawn)
+	_spawn_droppable(position, droppable_id_to_spawn, rotate)
 	_set_score(_get_droppable_value(droppable_id_to_spawn))
 	
 	var particle_inst = load("res://scenes/utils/mergeParticle.tscn").instantiate()
 	add_child(particle_inst)
 	particle_inst.position = position
-
 
 func _get_score():
 	return _score
@@ -74,7 +90,6 @@ func _get_score():
 func _set_score(value):
 	_score += value
 	ScoreLabel.text = str(_score)
-	print(_get_score())
 
 func _reset_score():
 	# This isn't called anywhere yet
@@ -100,3 +115,14 @@ func _get_droppable_value(id):
 		10000 # sunflower_p
 	]
 	return scoreArray[id]
+
+func _get_num_flowers_dropped():
+	return _num_flowers_dropped
+
+func _increment_num_flowers_dropped():
+	_num_flowers_dropped += 1
+	NumFlowerLabel.text = str(_num_flowers_dropped)
+
+func _reset_num_flowers_dropped():
+	#Not using this yet, unless we need to clean up
+	_num_flowers_dropped = 0

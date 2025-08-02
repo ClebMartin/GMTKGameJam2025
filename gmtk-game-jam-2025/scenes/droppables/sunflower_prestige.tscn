@@ -5,17 +5,18 @@
 [ext_resource type="Shader" uid="uid://diacvormsr5mw" path="res://assets/shaders/Moving-Rainbow-Gradient.gdshader" id="2_ea063"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_254dx"]
-bounce = 0.2
+friction = 0.9
+bounce = 0.1
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_no27n"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_73cyt"]
 shader = ExtResource("2_ea063")
 shader_parameter/strength = 0.3
 shader_parameter/speed = 0.5
 shader_parameter/angle = 45.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_p7eyx"]
-radius = 115.0
-height = 230.0
+radius = 83.0
+height = 166.0
 
 [node name="Sunflower_Prestige" type="RigidBody2D"]
 physics_material_override = SubResource("PhysicsMaterial_254dx")
@@ -23,9 +24,9 @@ max_contacts_reported = 1
 script = ExtResource("1_73cyt")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-material = SubResource("ShaderMaterial_no27n")
+material = SubResource("ShaderMaterial_73cyt")
 position = Vector2(-1, -2.72848e-12)
-scale = Vector2(0.482515, 0.482515)
+scale = Vector2(0.355289, 0.351297)
 texture = ExtResource("2_73cyt")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
