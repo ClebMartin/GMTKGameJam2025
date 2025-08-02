@@ -2,7 +2,7 @@
 
 [ext_resource type="Shader" uid="uid://diacvormsr5mw" path="res://assets/shaders/Moving-Rainbow-Gradient.gdshader" id="1_cm1w1"]
 [ext_resource type="Script" uid="uid://lkpmtkaijgbk" path="res://scripts/leaf_prestige.gd" id="2_38e6y"]
-[ext_resource type="Texture2D" uid="uid://bpawxcvvse6mh" path="res://assets/sprites/leaf_botannical.png" id="2_cm1w1"]
+[ext_resource type="Texture2D" uid="uid://coshgaemn2pao" path="res://assets/sprites/leaf.png" id="3_cm1w1"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_38e6y"]
 shader = ExtResource("1_cm1w1")
@@ -13,7 +13,7 @@ shader_parameter/angle = 45.0
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_bg318"]
 bounce = 0.2
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_cm1w1"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2liin"]
 shader = ExtResource("1_cm1w1")
 shader_parameter/strength = 0.3
 shader_parameter/speed = 0.5
@@ -29,11 +29,11 @@ physics_material_override = SubResource("PhysicsMaterial_bg318")
 script = ExtResource("2_38e6y")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-material = SubResource("ShaderMaterial_cm1w1")
+material = SubResource("ShaderMaterial_2liin")
 position = Vector2(-1, 0)
-rotation = -3.14159
+rotation = 3.14159
 scale = Vector2(0.170034, 0.170034)
-texture = ExtResource("2_cm1w1")
+texture = ExtResource("3_cm1w1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, -1)

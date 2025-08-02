@@ -7,7 +7,7 @@
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_254dx"]
 bounce = 0.2
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_25w3j"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lwt0k"]
 shader = ExtResource("2_jhy0q")
 shader_parameter/strength = 0.3
 shader_parameter/speed = 0.5
@@ -23,7 +23,7 @@ max_contacts_reported = 1
 script = ExtResource("1_lwt0k")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-material = SubResource("ShaderMaterial_25w3j")
+material = SubResource("ShaderMaterial_lwt0k")
 position = Vector2(-1.14441e-05, -3.8147e-06)
 scale = Vector2(0.152204, 0.152204)
 texture = ExtResource("2_lwt0k")

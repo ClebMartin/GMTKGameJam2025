@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bpbhwm5mdm2e0"]
+[gd_scene load_steps=9 format=3 uid="uid://bpbhwm5mdm2e0"]
 
 [ext_resource type="Script" uid="uid://dg0mexjv5h77a" path="res://scripts/game.gd" id="1_lbhrr"]
 [ext_resource type="Texture2D" uid="uid://clbrep7hsqkjj" path="res://assets/sprites/texturePaper.jpg" id="2_iywne"]
@@ -64,6 +64,7 @@ horizontal_alignment = 1
 [node name="BackgroundMusic" parent="." instance=ExtResource("5_iywne")]
 
 [node name="BackgroundSounds" parent="." instance=ExtResource("6_p57ef")]
+
 [node name="TexturePaper" type="Sprite2D" parent="."]
 visible = false
 self_modulate = Color(1, 1, 1, 0.137255)

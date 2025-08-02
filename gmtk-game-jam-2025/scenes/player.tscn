@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://c1ixd77bw22cn" path="res://scripts/player.gd" id="1_3vyb7"]
 [ext_resource type="Texture2D" uid="uid://b8ndxhpasyptd" path="res://assets/sprites/hand.png" id="2_y4r1p"]
 [ext_resource type="Texture2D" uid="uid://dwav2g2fhlsfl" path="res://assets/sprites/seed.png" id="4_qlg0r"]
-[ext_resource type="Texture2D" uid="uid://bpawxcvvse6mh" path="res://assets/sprites/leaf_botannical.png" id="4_y4r1p"]
+[ext_resource type="Texture2D" uid="uid://coshgaemn2pao" path="res://assets/sprites/leaf.png" id="4_y4r1p"]
 [ext_resource type="Texture2D" uid="uid://daapepie3qhbt" path="res://assets/sprites/daisy.png" id="5_fjrip"]
 [ext_resource type="Texture2D" uid="uid://bw8s21ey2w0or" path="res://assets/sprites/carnation_bottanical.png" id="6_y4r1p"]
 [ext_resource type="Texture2D" uid="uid://br8e7jioko3qp" path="res://assets/sprites/bluebonnet.png" id="7_fjrip"]

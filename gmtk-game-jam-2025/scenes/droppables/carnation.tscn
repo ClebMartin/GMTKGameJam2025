@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://crsh2vfov83tc"]
+[gd_scene load_steps=5 format=3 uid="uid://qbynrxgaf2n3"]
 
 [ext_resource type="Script" uid="uid://jh7lhqd1k3wq" path="res://scripts/carnation.gd" id="1_ght7o"]
 [ext_resource type="Texture2D" uid="uid://bw8s21ey2w0or" path="res://assets/sprites/carnation_bottanical.png" id="2_ght7o"]
@@ -7,20 +7,22 @@
 bounce = 0.2
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_p7eyx"]
-radius = 34.0
-height = 68.0
+radius = 36.0
+height = 72.0
 
 [node name="Carnation" type="RigidBody2D"]
 physics_material_override = SubResource("PhysicsMaterial_254dx")
+gravity_scale = 0.5
 max_contacts_reported = 1
+angular_velocity = 3.14159
 script = ExtResource("1_ght7o")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Carnation" type="Sprite2D" parent="."]
 position = Vector2(-1.14441e-05, -3.8147e-06)
 scale = Vector2(0.152204, 0.152204)
 texture = ExtResource("2_ght7o")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_ght7o")
+shape = SubResource("CapsuleShape2D_p7eyx")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
