@@ -17,9 +17,24 @@ var _tulip_prestige_scene = preload("res://scenes/droppables/tulip_prestige.tscn
 var _rose_prestige_scene = preload("res://scenes/droppables/rose_prestige.tscn")
 var _sunflower_prestige_scene = preload("res://scenes/droppables/sunflower_prestige.tscn")
 
+@onready var _seed_img = $QueueGroup/Seed
+@onready var _leaf_img = $QueueGroup/Leaf
+@onready var _daisy_img = $QueueGroup/Daisy
+@onready var _carnation_img = $QueueGroup/Carnation
+# Technically, right now, player will never anything above a carnation
+# but, in order to not have a possible bug, I'll add them here.
+@onready var _bluebonnet_img = $QueueGroup/Bluebonnet
+@onready var _tulip_img = $QueueGroup/Tulip
+@onready var _rose_img = $QueueGroup/Rose
+@onready var _sunflower_img = $QueueGroup/Sunflower
+
 var _mergeParticle_scene = preload("res://scenes/utils/mergeParticle.tscn")
 
 var _current_droppable
+
+var _next_droppable
+var _next_droppable_id
+var _next_droppable_img_list
 
 var _droppable_list = [_seed_scene, _leaf_scene, _daisy_scene, _carnation_scene, _bluebonnet_scene, _tulip_scene, _rose_scene, _sunflower_scene, _seed_prestige_scene, _leaf_prestige_scene, _daisy_prestige_scene, _carnation_prestige_scene, _bluebonnet_prestige_scene, _tulip_prestige_scene, _rose_prestige_scene, _sunflower_prestige_scene]
 
@@ -30,9 +45,19 @@ var _drop_value = 1 # score addition for everytime you successfully drop a dropp
 @onready var NumFlowerLabel = $NumFlowerGroup/NumFlowerLabel
 var _num_flowers_dropped = 0
 
+var PlayerNode
+
 @onready var _rng = RandomNumberGenerator.new()
 
 func _ready() -> void:
+	_set_up_list()
+	PlayerNode = get_node("Player")
+	PlayerNode.next_droppable_id_signal.connect(_next_drop_id)
+	
+	_next_droppable_id = PlayerNode._next_droppable_id
+	_next_droppable = _next_droppable_img_list[_next_droppable_id]
+	_next_droppable.show()
+	
 	ScoreLabel.text = str(_score)
 
 func _physics_process(delta: float) -> void:
@@ -126,3 +151,21 @@ func _increment_num_flowers_dropped():
 func _reset_num_flowers_dropped():
 	#Not using this yet, unless we need to clean up
 	_num_flowers_dropped = 0
+
+func _next_drop_id(id):
+	_next_droppable.hide()
+	_next_droppable_id = id
+	_next_droppable = _next_droppable_img_list[_next_droppable_id]
+	_next_droppable.show()
+	
+func _set_up_list():
+	_next_droppable_img_list = [
+		_seed_img,
+		_leaf_img,
+		_daisy_img,
+		_carnation_img,
+		_bluebonnet_img,
+		_tulip_img,
+		_rose_img,
+		_sunflower_img
+	]

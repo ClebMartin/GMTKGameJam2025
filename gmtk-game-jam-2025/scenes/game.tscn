@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bpbhwm5mdm2e0"]
+[gd_scene load_steps=21 format=3 uid="uid://bpbhwm5mdm2e0"]
 
 [ext_resource type="Script" uid="uid://dg0mexjv5h77a" path="res://scripts/game.gd" id="1_lbhrr"]
 [ext_resource type="Texture2D" uid="uid://8r2yi3u3yop4" path="res://assets/sprites/background.jpg" id="2_0tnpc"]
@@ -10,7 +10,15 @@
 [ext_resource type="PackedScene" uid="uid://c2qa0oan4fjgc" path="res://scenes/utils/BackgroundMusic.tscn" id="5_iywne"]
 [ext_resource type="PackedScene" uid="uid://kspneow8828p" path="res://scenes/utils/BackgroundSounds.tscn" id="6_p57ef"]
 [ext_resource type="Texture2D" uid="uid://ba8ejg10vkj6" path="res://assets/sprites/basketFront@0.33x.png" id="6_vtaks"]
+[ext_resource type="Texture2D" uid="uid://dwav2g2fhlsfl" path="res://assets/sprites/seed.png" id="8_ssvqc"]
+[ext_resource type="Texture2D" uid="uid://coshgaemn2pao" path="res://assets/sprites/leaf.png" id="9_264po"]
+[ext_resource type="Texture2D" uid="uid://daapepie3qhbt" path="res://assets/sprites/daisy.png" id="10_1kice"]
+[ext_resource type="Texture2D" uid="uid://bw8s21ey2w0or" path="res://assets/sprites/carnation_bottanical.png" id="11_5newe"]
 [ext_resource type="PackedScene" uid="uid://dvn8h25h1mucl" path="res://scenes/killzone.tscn" id="11_kvpfn"]
+[ext_resource type="Texture2D" uid="uid://br8e7jioko3qp" path="res://assets/sprites/bluebonnet.png" id="12_37s47"]
+[ext_resource type="Texture2D" uid="uid://bswcj836i2ytv" path="res://assets/sprites/tulip.png" id="13_bt5mj"]
+[ext_resource type="Texture2D" uid="uid://bsghd26ny8bbu" path="res://assets/sprites/rose.png" id="14_e1j6l"]
+[ext_resource type="Texture2D" uid="uid://t1y2ht3fbjh8" path="res://assets/sprites/sunflower.png" id="15_pl11u"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_kvpfn"]
 distance = -558.0
@@ -61,10 +69,10 @@ position = Vector2(480, 272)
 [node name="ScoreGroup" type="Node2D" parent="."]
 
 [node name="ScoreLabel" type="Label" parent="ScoreGroup"]
-offset_left = 7.0
-offset_top = 1.0
-offset_right = 305.0
-offset_bottom = 229.0
+offset_left = 30.0
+offset_top = 38.0
+offset_right = 277.0
+offset_bottom = 266.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 2
 theme_override_fonts/font = ExtResource("4_lbhrr")
@@ -73,23 +81,84 @@ text = "0"
 horizontal_alignment = 1
 
 [node name="ScoreText" type="Label" parent="ScoreGroup"]
-offset_left = 102.0
-offset_top = 39.0
-offset_right = 204.0
-offset_bottom = 113.0
+offset_left = 98.0
+offset_top = 74.0
+offset_right = 200.0
+offset_bottom = 148.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 2
 theme_override_fonts/font = ExtResource("4_lbhrr")
 theme_override_font_sizes/font_size = 64
 text = "Score"
 
+[node name="QueueGroup" type="Node2D" parent="."]
+
+[node name="QueueText" type="Label" parent="QueueGroup"]
+offset_left = 775.0
+offset_top = 76.0
+offset_right = 877.0
+offset_bottom = 150.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("4_lbhrr")
+theme_override_font_sizes/font_size = 64
+text = "Next"
+
+[node name="Seed" type="Sprite2D" parent="QueueGroup"]
+visible = false
+position = Vector2(829, 174)
+scale = Vector2(0.308, 0.308)
+texture = ExtResource("8_ssvqc")
+
+[node name="Leaf" type="Sprite2D" parent="QueueGroup"]
+visible = false
+position = Vector2(830, 182)
+scale = Vector2(0.338617, 0.338617)
+texture = ExtResource("9_264po")
+
+[node name="Daisy" type="Sprite2D" parent="QueueGroup"]
+visible = false
+position = Vector2(829, 181)
+scale = Vector2(0.191097, 0.191097)
+texture = ExtResource("10_1kice")
+
+[node name="Carnation" type="Sprite2D" parent="QueueGroup"]
+visible = false
+position = Vector2(826, 186)
+scale = Vector2(0.182844, 0.182844)
+texture = ExtResource("11_5newe")
+
+[node name="Bluebonnet" type="Sprite2D" parent="QueueGroup"]
+visible = false
+position = Vector2(826, 205)
+scale = Vector2(0.231846, 0.231846)
+texture = ExtResource("12_37s47")
+
+[node name="Tulip" type="Sprite2D" parent="QueueGroup"]
+visible = false
+position = Vector2(825, 195)
+scale = Vector2(0.350435, 0.350435)
+texture = ExtResource("13_bt5mj")
+
+[node name="Rose" type="Sprite2D" parent="QueueGroup"]
+visible = false
+position = Vector2(826, 196)
+scale = Vector2(0.205243, 0.205243)
+texture = ExtResource("14_e1j6l")
+
+[node name="Sunflower" type="Sprite2D" parent="QueueGroup"]
+visible = false
+position = Vector2(826, 204)
+scale = Vector2(0.270265, 0.270265)
+texture = ExtResource("15_pl11u")
+
 [node name="NumFlowerGroup" type="Node2D" parent="."]
 
 [node name="NumFlowerLabel" type="Label" parent="NumFlowerGroup"]
-offset_left = 3.0
-offset_top = 225.0
-offset_right = 301.0
-offset_bottom = 453.0
+offset_left = 2.0
+offset_top = 242.0
+offset_right = 300.0
+offset_bottom = 470.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 2
 theme_override_fonts/font = ExtResource("4_lbhrr")
@@ -98,15 +167,16 @@ text = "0"
 horizontal_alignment = 1
 
 [node name="NumFlowerText" type="Label" parent="NumFlowerGroup"]
-offset_left = 2.0
-offset_top = 251.0
-offset_right = 284.0
-offset_bottom = 325.0
+offset_left = 78.0
+offset_top = 285.0
+offset_right = 216.0
+offset_bottom = 359.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 2
 theme_override_fonts/font = ExtResource("4_lbhrr")
 theme_override_font_sizes/font_size = 64
-text = "Flowers Dropped"
+text = "Flowers"
+horizontal_alignment = 1
 
 [node name="BackgroundMusic" parent="." instance=ExtResource("5_iywne")]
 

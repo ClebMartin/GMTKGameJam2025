@@ -25,6 +25,10 @@ signal dropped_droppable
 var _current_droppable
 var _current_droppable_id = 0
 
+# For "Queue" in Game
+var _next_droppable_id
+signal next_droppable_id_signal
+
 var _tick = 0
 var _waiting_to_spawn = false
 
@@ -32,15 +36,18 @@ const FOLLOW_SPEED = 3.8
 
 func _pick_random_droppable():
 	# only return index for seed, leaf, daisy, or carnation.
-	return _rng.randi_range(0, 3)
+	return _rng.randi_range(0, 7)
 	
 func _spawn_new_droppable():
-	_current_droppable_id = _pick_random_droppable()
+	_current_droppable_id = _next_droppable_id
+	_next_droppable_id = _pick_random_droppable()
 	_current_droppable = _droppable_img_list[_current_droppable_id]
 	_current_droppable.show()
+	next_droppable_id_signal.emit(_next_droppable_id)
 
 func _ready():
 	_set_up_list()
+	_next_droppable_id = 0
 	_spawn_new_droppable()
 
 func _physics_process(delta):
