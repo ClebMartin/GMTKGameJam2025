@@ -48,9 +48,9 @@ func _physics_process(delta):
 	var mouse_pos = get_global_mouse_position()
 	self.position.x = self.position.lerp(mouse_pos, delta * FOLLOW_SPEED).x
 	
-	if Input.is_action_pressed("left"):
+	if Input.is_action_pressed("left") and self.position.x != 330:
 		self.position.x -= PLAYER_SPEED
-	if Input.is_action_pressed('right'):
+	if Input.is_action_pressed('right') and self.position.x != 650:
 		self.position.x += PLAYER_SPEED
 	if Input.is_action_pressed("drop") && !_waiting_to_spawn:
 		_drop()
