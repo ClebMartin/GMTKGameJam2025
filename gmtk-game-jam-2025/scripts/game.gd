@@ -53,18 +53,21 @@ func _on_player_dropped_droppable(pos, droppable_id) -> void:
 	_set_score(_drop_value)
 	_increment_num_flowers_dropped()
 
-func _spawn_next_evolution(position, droppable_id):
+func _spawn_next_evolution(position, droppable_id, isPrestiged = false):
 	# This is where the check happens to increase to next evolution
 	# If we put powerups into Enum/etc. (which we should),
 	# This check will need to be more robust so that sunflower doesn't turn
 	# into Bumblebee, etc.
 	var droppable_id_to_spawn = droppable_id + 1
 	
+	if isPrestiged and droppable_id_to_spawn < 8:
+		droppable_id_to_spawn += 8
+	
 	# droppable multiplier set here
 	
 	# If prestiged sunflower combine, created normal prestiged seed
 	# LOOOOOOOOOOOOOOOOOOOOOOOOOP
-	if droppable_id_to_spawn >= 15:
+	if droppable_id_to_spawn > 15:
 		droppable_id_to_spawn = 8
 	
 	# Make Spawnable rotated on instantiate
