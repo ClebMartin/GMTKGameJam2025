@@ -18,7 +18,7 @@ angular_velocity = 3.14159
 script = ExtResource("1_dwdjv")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.119316, 0.119316)
+scale = Vector2(0.140044, 0.140044)
 texture = ExtResource("2_dwdjv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

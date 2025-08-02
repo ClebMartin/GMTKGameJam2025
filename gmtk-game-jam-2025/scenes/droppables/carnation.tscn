@@ -6,9 +6,8 @@
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_254dx"]
 bounce = 0.2
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_p7eyx"]
-radius = 54.0
-height = 108.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_ght7o"]
+radius = 38.0526
 
 [node name="Carnation" type="RigidBody2D"]
 physics_material_override = SubResource("PhysicsMaterial_254dx")
@@ -16,10 +15,10 @@ max_contacts_reported = 1
 script = ExtResource("1_ght7o")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.330626, 0.330626)
+scale = Vector2(0.251613, 0.251613)
 texture = ExtResource("2_ght7o")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_p7eyx")
+shape = SubResource("CircleShape2D_ght7o")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
