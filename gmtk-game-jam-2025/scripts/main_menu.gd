@@ -9,6 +9,11 @@ var _tulip_scene = preload("res://scenes/droppables/tulip.tscn")
 var _rose_scene = preload("res://scenes/droppables/rose.tscn")
 var _sunflower_scene = preload("res://scenes/droppables/sunflower.tscn")
 
+@onready var pop_1: AudioStreamPlayer2D = $SFX/Pop1
+@onready var pop_2: AudioStreamPlayer2D = $SFX/Pop2
+@onready var pop_3: AudioStreamPlayer2D = $SFX/Pop3
+@onready var rustle_1: AudioStreamPlayer2D = $SFX/Rustle1
+
 @onready var spawnArea = $SpawnerArea2D/CollisionShape2D
 
 @onready var _rng = RandomNumberGenerator.new()
@@ -22,13 +27,10 @@ func _ready():
 	_startSpawn()
 	#Unique Name Accesses (set from scene inspector)
 	%StartButton.pressed.connect(_play)
-	%QuitButton.pressed.connect(_quit)
 
 func _play():
+	# rustle_1.play()
 	get_tree().change_scene_to_file("res://scenes/game.tscn")
-	
-func _quit():
-	get_tree().quit()
 
 func _startSpawn():
 	spawnTimer = Timer.new()
@@ -44,14 +46,27 @@ func _spawn_flower():
 	var offset = _rng.randf_range(-spawnArea.shape.size.x/2, spawnArea.shape.size.x/2)
 	posX += offset
 	
-	var droppable_index =  _rng.randi_range(2, 7)
+	var droppable_index =  _rng.randi_range(1, 7)
 	var drop_temp = _droppable_list[droppable_index].instantiate()
 	add_child(drop_temp)
 	drop_temp.global_position.x = posX
 	drop_temp.global_position.y = posY
+	_play_random_pop()
 
 func _on_my_timer_timeout():
 	_spawn_flower()
 	if wait_time > .8:
 		wait_time -=.1
 		spawnTimer.set_wait_time(wait_time)
+
+func _play_random_pop():
+	var temp = _rng.randi_range(0,2)
+	match temp:
+		0:
+			pop_1.play()
+		1:
+			pop_2.play()
+		2:
+			pop_3.play()
+		_:
+			pop_1.play()
