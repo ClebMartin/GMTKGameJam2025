@@ -28,6 +28,8 @@ var _current_droppable_id = 0
 var _tick = 0
 var _waiting_to_spawn = false
 
+const FOLLOW_SPEED = 3.8
+
 func _pick_random_droppable():
 	# only return index for seed, leaf, daisy, or carnation.
 	return _rng.randi_range(0, 3)
@@ -42,15 +44,13 @@ func _ready():
 	_spawn_new_droppable()
 
 func _physics_process(delta):
-	# Follow mouse, don't change y value
-	# Could lerp this!
-	# self.position.x = get_viewport().get_mouse_position().x
+	# How do I tell if I'm using keyboard or mouse primarily?
+	var mouse_pos = get_global_mouse_position()
+	self.position.x = self.position.lerp(mouse_pos, delta * FOLLOW_SPEED).x
 	
 	if Input.is_action_pressed("left") and self.position.x != 330:
-		#do stuff
 		self.position.x -= PLAYER_SPEED
 	if Input.is_action_pressed('right') and self.position.x != 650:
-		#do stuff
 		self.position.x += PLAYER_SPEED
 	if Input.is_action_pressed("drop") && !_waiting_to_spawn:
 		_drop()

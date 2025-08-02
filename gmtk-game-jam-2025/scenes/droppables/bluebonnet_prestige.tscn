@@ -1,0 +1,34 @@
+[gd_scene load_steps=7 format=3 uid="uid://dpbpr7c4q425w"]
+
+[ext_resource type="Script" uid="uid://ccvdq6x5amg58" path="res://scripts/bluebonnet_prestige.gd" id="1_4asr5"]
+[ext_resource type="Texture2D" uid="uid://br8e7jioko3qp" path="res://assets/sprites/bluebonnet.png" id="2_4asr5"]
+[ext_resource type="Shader" uid="uid://diacvormsr5mw" path="res://assets/shaders/Moving-Rainbow-Gradient.gdshader" id="2_t1rc8"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_254dx"]
+bounce = 0.2
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_caujr"]
+shader = ExtResource("2_t1rc8")
+shader_parameter/strength = 0.3
+shader_parameter/speed = 0.5
+shader_parameter/angle = 45.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_p7eyx"]
+radius = 20.0
+height = 110.0
+
+[node name="Bluebonnet_Prestige" type="RigidBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_254dx")
+max_contacts_reported = 1
+script = ExtResource("1_4asr5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_caujr")
+position = Vector2(0, 2.38419e-07)
+scale = Vector2(0.120939, 0.120939)
+texture = ExtResource("2_4asr5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_p7eyx")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

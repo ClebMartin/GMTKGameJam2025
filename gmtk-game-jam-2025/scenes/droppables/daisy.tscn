@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://qbynrxgaf2n3"]
+[gd_scene load_steps=5 format=3 uid="uid://ca4fdkbvrv1ie"]
 
 [ext_resource type="Script" uid="uid://vfvf7uc8lc76" path="res://scripts/daisy.gd" id="1_dwdjv"]
 [ext_resource type="Texture2D" uid="uid://daapepie3qhbt" path="res://assets/sprites/daisy.png" id="2_dwdjv"]

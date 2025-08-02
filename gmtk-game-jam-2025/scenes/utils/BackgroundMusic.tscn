@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://c2qa0oan4fjgc"]
+
+[ext_resource type="AudioStream" uid="uid://bk8oqyv5cdvww" path="res://assets/music/The_Queens_Jigg.ogg" id="1_357ey"]
+
+[node name="BackgroundMusic" type="Node2D"]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("1_357ey")
+volume_db = -3.0
+autoplay = true

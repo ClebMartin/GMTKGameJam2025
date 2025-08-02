@@ -1,0 +1,34 @@
+[gd_scene load_steps=7 format=3 uid="uid://qhi1fnkn3mp1"]
+
+[ext_resource type="Script" uid="uid://cnjkqbgk0d3p1" path="res://scripts/carnation_prestige.gd" id="1_lwt0k"]
+[ext_resource type="Shader" uid="uid://diacvormsr5mw" path="res://assets/shaders/Moving-Rainbow-Gradient.gdshader" id="2_jhy0q"]
+[ext_resource type="Texture2D" uid="uid://bw8s21ey2w0or" path="res://assets/sprites/carnation_bottanical.png" id="2_lwt0k"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_254dx"]
+bounce = 0.2
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lwt0k"]
+shader = ExtResource("2_jhy0q")
+shader_parameter/strength = 0.3
+shader_parameter/speed = 0.5
+shader_parameter/angle = 45.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_p7eyx"]
+radius = 34.0
+height = 68.0
+
+[node name="Carnation_Prestige" type="RigidBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_254dx")
+max_contacts_reported = 1
+script = ExtResource("1_lwt0k")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_lwt0k")
+position = Vector2(-1.14441e-05, -3.8147e-06)
+scale = Vector2(0.152204, 0.152204)
+texture = ExtResource("2_lwt0k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_p7eyx")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

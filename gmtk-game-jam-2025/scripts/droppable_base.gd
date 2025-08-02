@@ -16,6 +16,10 @@ func _physics_process(delta: float):
 	var contacts = get_colliding_bodies()
 	# var num = get_contact_count()
 	if get_contact_count() > 1:
+		
+		if get_tree().current_scene.name == "MainMenu":
+			return #We don't want to get rid of flowers in MainMenu
+			
 		for body in contacts: 
 			if body is DroppableBase:
 				# some bug in here? maybe an extra spawns? Why? Collision detection?

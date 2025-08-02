@@ -1,0 +1,34 @@
+[gd_scene load_steps=7 format=3 uid="uid://2c7maix2hnk2"]
+
+[ext_resource type="Script" uid="uid://ky4pm133fo13" path="res://scripts/rose_prestige.gd" id="1_ivqlj"]
+[ext_resource type="Texture2D" uid="uid://bsghd26ny8bbu" path="res://assets/sprites/rose.png" id="2_ivqlj"]
+[ext_resource type="Shader" uid="uid://diacvormsr5mw" path="res://assets/shaders/Moving-Rainbow-Gradient.gdshader" id="2_mq58x"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_254dx"]
+bounce = 0.2
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vrfef"]
+shader = ExtResource("2_mq58x")
+shader_parameter/strength = 0.3
+shader_parameter/speed = 0.5
+shader_parameter/angle = 45.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_p7eyx"]
+radius = 62.0
+height = 124.0
+
+[node name="Rose_Prestige" type="RigidBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_254dx")
+max_contacts_reported = 1
+script = ExtResource("1_ivqlj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_vrfef")
+position = Vector2(-1, -3)
+scale = Vector2(0.238839, 0.238839)
+texture = ExtResource("2_ivqlj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_p7eyx")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
