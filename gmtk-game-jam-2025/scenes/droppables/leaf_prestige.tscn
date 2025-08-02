@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://bs2eycty3d6ak"]
 
 [ext_resource type="Shader" uid="uid://diacvormsr5mw" path="res://assets/shaders/Moving-Rainbow-Gradient.gdshader" id="1_cm1w1"]
-[ext_resource type="Script" uid="uid://lkpmtkaijgbk" path="res://scripts/leaf_prestige.gd" id="2_38e6y"]
+[ext_resource type="Script" path="res://scripts/leaf_prestige.gd" id="2_38e6y"]
 [ext_resource type="Texture2D" uid="uid://coshgaemn2pao" path="res://assets/sprites/leaf.png" id="3_cm1w1"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_38e6y"]
@@ -20,9 +20,9 @@ shader_parameter/strength = 0.3
 shader_parameter/speed = 0.5
 shader_parameter/angle = 45.0
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_m4twh"]
-radius = 14.1421
-height = 46.669
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cm1w1"]
+radius = 18.0
+height = 36.0
 
 [node name="Leaf_Prestige" type="RigidBody2D"]
 material = SubResource("ShaderMaterial_38e6y")
@@ -32,12 +32,9 @@ script = ExtResource("2_38e6y")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_2liin")
-position = Vector2(-1, 0)
 rotation = 3.14159
 scale = Vector2(0.170034, 0.170034)
 texture = ExtResource("3_cm1w1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, -1)
-rotation = -0.785398
-shape = SubResource("CapsuleShape2D_m4twh")
+shape = SubResource("CapsuleShape2D_cm1w1")

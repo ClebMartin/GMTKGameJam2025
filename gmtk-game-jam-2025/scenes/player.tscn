@@ -15,9 +15,10 @@
 script = ExtResource("1_3vyb7")
 
 [node name="Hand" type="Sprite2D" parent="."]
-position = Vector2(36.9303, -17.2822)
-scale = Vector2(0.115698, 0.115698)
+rotation = -0.61596
+scale = Vector2(0.278942, 0.278942)
 texture = ExtResource("2_y4r1p")
+offset = Vector2(319.196, -149.373)
 
 [node name="Seed" type="Sprite2D" parent="."]
 visible = false
