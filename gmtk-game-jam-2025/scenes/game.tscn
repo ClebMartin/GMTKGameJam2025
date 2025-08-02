@@ -1,13 +1,15 @@
-[gd_scene load_steps=9 format=3 uid="uid://bpbhwm5mdm2e0"]
+[gd_scene load_steps=11 format=3 uid="uid://bpbhwm5mdm2e0"]
 
 [ext_resource type="Script" uid="uid://dg0mexjv5h77a" path="res://scripts/game.gd" id="1_lbhrr"]
+[ext_resource type="Texture2D" uid="uid://8r2yi3u3yop4" path="res://assets/sprites/background.jpg" id="2_0tnpc"]
+[ext_resource type="Texture2D" uid="uid://doub3qmseie61" path="res://assets/sprites/basket@0.33x.png" id="2_gee14"]
 [ext_resource type="Texture2D" uid="uid://clbrep7hsqkjj" path="res://assets/sprites/texturePaper.jpg" id="2_iywne"]
-[ext_resource type="Texture2D" uid="uid://du3h2edfrwmnj" path="res://assets/sprites/basket.png" id="2_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://igw3ym3x2ynf" path="res://scenes/basket.tscn" id="2_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://ckwxsg8n57wix" path="res://scenes/player.tscn" id="3_lnu2h"]
 [ext_resource type="FontFile" uid="uid://bylebo6njjpq" path="res://assets/fonts/OldScientificIllustration.ttf" id="4_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://c2qa0oan4fjgc" path="res://scenes/utils/BackgroundMusic.tscn" id="5_iywne"]
 [ext_resource type="PackedScene" uid="uid://kspneow8828p" path="res://scenes/utils/BackgroundSounds.tscn" id="6_p57ef"]
+[ext_resource type="Texture2D" uid="uid://ba8ejg10vkj6" path="res://assets/sprites/basketFront@0.33x.png" id="6_vtaks"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_lbhrr")
@@ -17,17 +19,31 @@ offset_right = 960.0
 offset_bottom = 543.0
 color = Color(0.909217, 0.88742, 0.860602, 1)
 
-[node name="Ink" type="ColorRect" parent="."]
-offset_top = 454.0
-offset_right = 960.0
-offset_bottom = 542.0
+[node name="Background" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.25098)
+position = Vector2(458.949, 229)
+scale = Vector2(0.722437, 0.722437)
+texture = ExtResource("2_0tnpc")
+
+[node name="behindBasket" type="ColorRect" parent="."]
+offset_left = 315.0
+offset_top = 229.0
+offset_right = 669.0
+offset_bottom = 502.0
 color = Color(0.754425, 0.70996, 0.64893, 1)
 
 [node name="Basket_Sprite" type="Sprite2D" parent="."]
-self_modulate = Color(1, 1, 1, 0.352941)
-position = Vector2(492, 268.25)
-scale = Vector2(0.519084, 0.676593)
-texture = ExtResource("2_lbhrr")
+self_modulate = Color(1, 1, 1, 0.745098)
+position = Vector2(492, 352.5)
+scale = Vector2(0.868817, 0.743158)
+texture = ExtResource("2_gee14")
+
+[node name="frontOfBasket" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.745098)
+top_level = true
+position = Vector2(492, 352.5)
+scale = Vector2(0.868817, 0.743158)
+texture = ExtResource("6_vtaks")
 
 [node name="Basket" parent="." instance=ExtResource("2_yqjtg")]
 position = Vector2(492, 498)

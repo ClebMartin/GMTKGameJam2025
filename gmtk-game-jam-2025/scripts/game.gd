@@ -17,6 +17,8 @@ var _tulip_prestige_scene = preload("res://scenes/droppables/tulip_prestige.tscn
 var _rose_prestige_scene = preload("res://scenes/droppables/rose_prestige.tscn")
 var _sunflower_prestige_scene = preload("res://scenes/droppables/sunflower_prestige.tscn")
 
+var _mergeParticle_scene = preload("res://scenes/utils/mergeParticle.tscn")
+
 var _current_droppable
 
 var _droppable_list = [_seed_scene, _leaf_scene, _daisy_scene, _carnation_scene, _bluebonnet_scene, _tulip_scene, _rose_scene, _sunflower_scene, _seed_prestige_scene, _leaf_prestige_scene, _daisy_prestige_scene, _carnation_prestige_scene, _bluebonnet_prestige_scene, _tulip_prestige_scene, _rose_prestige_scene, _sunflower_prestige_scene]
@@ -60,6 +62,10 @@ func _spawn_next_evolution(position, droppable_id):
 		
 	_spawn_droppable(position, droppable_id_to_spawn)
 	_set_score(_get_droppable_value(droppable_id_to_spawn))
+	
+	var particle_inst = load("res://scenes/utils/mergeParticle.tscn").instantiate()
+	add_child(particle_inst)
+	particle_inst.position = position
 
 
 func _get_score():
