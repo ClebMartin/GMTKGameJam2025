@@ -32,7 +32,7 @@ const FOLLOW_SPEED = 3.8
 
 func _pick_random_droppable():
 	# only return index for seed, leaf, daisy, or carnation.
-	return _rng.randi_range(0, 7)
+	return _rng.randi_range(0, 3)
 	
 func _spawn_new_droppable():
 	_current_droppable_id = _pick_random_droppable()
