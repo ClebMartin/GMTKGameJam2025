@@ -1,20 +1,25 @@
-[gd_scene load_steps=3 format=3 uid="uid://bmenhfckgt8wk"]
+[gd_scene load_steps=4 format=3 uid="uid://bmenhfckgt8wk"]
 
 [ext_resource type="Texture2D" uid="uid://bpawxcvvse6mh" path="res://assets/sprites/leaf_botannical.png" id="1_6sccf"]
 [ext_resource type="Script" uid="uid://vf1p2pl3dn6u" path="res://scripts/merge_particle.gd" id="2_t8t78"]
 
+[sub_resource type="Gradient" id="Gradient_t8t78"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
 [node name="mergeParticle" type="CPUParticles2D"]
 texture = ExtResource("1_6sccf")
-lifetime = 0.46
-explosiveness = 0.59
-randomness = 0.24
+lifetime = 0.58
+explosiveness = 0.73
+randomness = 0.18
 spread = 180.0
 gravity = Vector2(0, 0)
 initial_velocity_min = 240.26
 initial_velocity_max = 275.98
+angular_velocity_max = 51.43
 radial_accel_max = 48.7
 angle_min = -350.6
 angle_max = 280.5
 scale_amount_min = 0.0
 scale_amount_max = 0.25
+color_ramp = SubResource("Gradient_t8t78")
 script = ExtResource("2_t8t78")
