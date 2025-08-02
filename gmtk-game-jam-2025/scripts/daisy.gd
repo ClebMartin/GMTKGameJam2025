@@ -1,4 +1,4 @@
-extends DroppableBase
+extends DroppableBase 
 
 func _ready():
 	_init()

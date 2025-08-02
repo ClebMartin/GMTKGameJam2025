@@ -46,10 +46,10 @@ func _physics_process(delta):
 	# Could lerp this!
 	# self.position.x = get_viewport().get_mouse_position().x
 	
-	if Input.is_action_pressed("left"):
+	if Input.is_action_pressed("left") and self.position.x != 330:
 		#do stuff
 		self.position.x -= PLAYER_SPEED
-	if Input.is_action_pressed('right'):
+	if Input.is_action_pressed('right') and self.position.x != 650:
 		#do stuff
 		self.position.x += PLAYER_SPEED
 	if Input.is_action_pressed("drop") && !_waiting_to_spawn:

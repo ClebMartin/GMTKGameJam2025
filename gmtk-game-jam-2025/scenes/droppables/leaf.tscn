@@ -6,16 +6,17 @@
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_bg318"]
 bounce = 0.2
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_m4twh"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_e748q"]
+radius = 16.0
 
 [node name="Leaf" type="RigidBody2D"]
 physics_material_override = SubResource("PhysicsMaterial_bg318")
 script = ExtResource("1_e748q")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-rotation = -0.750492
-scale = Vector2(0.0572626, 0.0572626)
+position = Vector2(0, -1)
+scale = Vector2(0.146119, 0.146119)
 texture = ExtResource("2_e748q")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_m4twh")
+shape = SubResource("CircleShape2D_e748q")
