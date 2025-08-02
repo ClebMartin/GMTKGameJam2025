@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://cx4mtl7f3dcha"]
 
-[ext_resource type="Script" uid="uid://cmu3af52vq45f" path="res://scripts/tulip__prestige.gd" id="1_ej7pr"]
+[ext_resource type="Script" path="res://scripts/tulip__prestige.gd" id="1_ej7pr"]
 [ext_resource type="Texture2D" uid="uid://bswcj836i2ytv" path="res://assets/sprites/tulip.png" id="2_ej7pr"]
 [ext_resource type="Shader" uid="uid://diacvormsr5mw" path="res://assets/shaders/Moving-Rainbow-Gradient.gdshader" id="2_x5jhf"]
 
@@ -15,8 +15,8 @@ shader_parameter/speed = 0.5
 shader_parameter/angle = 45.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_p7eyx"]
-radius = 52.0
-height = 104.0
+radius = 48.0
+height = 96.0
 
 [node name="Tulip_Prestige" type="RigidBody2D"]
 physics_material_override = SubResource("PhysicsMaterial_254dx")

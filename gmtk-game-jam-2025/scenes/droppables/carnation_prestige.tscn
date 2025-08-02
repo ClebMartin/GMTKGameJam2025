@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://qhi1fnkn3mp1"]
 
-[ext_resource type="Script" uid="uid://cnjkqbgk0d3p1" path="res://scripts/carnation_prestige.gd" id="1_lwt0k"]
+[ext_resource type="Script" path="res://scripts/carnation_prestige.gd" id="1_lwt0k"]
 [ext_resource type="Shader" uid="uid://diacvormsr5mw" path="res://assets/shaders/Moving-Rainbow-Gradient.gdshader" id="2_jhy0q"]
 [ext_resource type="Texture2D" uid="uid://bw8s21ey2w0or" path="res://assets/sprites/carnation_bottanical.png" id="2_lwt0k"]
 
@@ -26,8 +26,8 @@ script = ExtResource("1_lwt0k")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_lwt0k")
-position = Vector2(-1.14441e-05, -3.8147e-06)
-scale = Vector2(0.152204, 0.152204)
+position = Vector2(0.500002, -3.8147e-06)
+scale = Vector2(0.137224, 0.152204)
 texture = ExtResource("2_lwt0k")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

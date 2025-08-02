@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://vbsrvkmcel2v"]
 
-[ext_resource type="Script" uid="uid://mqjxpwvby6ad" path="res://scripts/main_menu.gd" id="1_qkhwq"]
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_qkhwq"]
 [ext_resource type="Texture2D" uid="uid://y8nuelh5vbdp" path="res://assets/sprites/safwan-thottoli-FZBoZOmI9hs-unsplash.jpg" id="2_3d1i7"]
 [ext_resource type="FontFile" uid="uid://bylebo6njjpq" path="res://assets/fonts/OldScientificIllustration.ttf" id="3_48ign"]
 
