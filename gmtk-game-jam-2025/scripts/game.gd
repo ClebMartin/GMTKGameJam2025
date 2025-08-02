@@ -17,6 +17,14 @@ var _tulip_prestige_scene = preload("res://scenes/droppables/tulip_prestige.tscn
 var _rose_prestige_scene = preload("res://scenes/droppables/rose_prestige.tscn")
 var _sunflower_prestige_scene = preload("res://scenes/droppables/sunflower_prestige.tscn")
 
+@onready var polyphonic_audio_player: AudioStreamPlayer2D = $PolyphonicAudioPlayer
+@onready var pop_1: AudioStreamPlayer2D = $SFX/Pop1
+@onready var pop_2: AudioStreamPlayer2D = $SFX/Pop2
+@onready var pop_3: AudioStreamPlayer2D = $SFX/Pop3
+@onready var rustle_1: AudioStreamPlayer2D = $SFX/Rustle1
+@onready var rustle_2: AudioStreamPlayer2D = $SFX/Rustle2
+@onready var rustle_3: AudioStreamPlayer2D = $SFX/Rustle3
+
 @onready var _seed_img = $QueueGroup/Seed
 @onready var _leaf_img = $QueueGroup/Leaf
 @onready var _daisy_img = $QueueGroup/Daisy
@@ -77,6 +85,7 @@ func _spawn_droppable(pos, droppable_id, rot = 0):
 func _on_player_dropped_droppable(pos, droppable_id) -> void:
 	# when player immediately drops a flower
 	_spawn_droppable(pos, droppable_id)
+	_play_random_pop()
 	_set_score(_drop_value)
 	_increment_num_flowers_dropped()
 
@@ -108,6 +117,7 @@ func _spawn_next_evolution(position, droppable_id, isPrestiged = false):
 	var particle_inst = load("res://scenes/utils/mergeParticle.tscn").instantiate()
 	add_child(particle_inst)
 	particle_inst.position = position
+	_play_random_rustle()
 
 func _get_score():
 	return _score
@@ -169,3 +179,27 @@ func _set_up_list():
 		_rose_img,
 		_sunflower_img
 	]
+	
+func _play_random_pop():
+	var temp = _rng.randi_range(0,2)
+	match temp:
+		0:
+			pop_1.play()
+		1:
+			pop_2.play()
+		2:
+			pop_3.play()
+		_:
+			pop_1.play()
+	
+func _play_random_rustle():
+	var temp = _rng.randi_range(0,2)
+	match temp:
+		3:
+			rustle_1.play()
+		4:
+			rustle_2.play()
+		5:
+			rustle_3.play()
+		_:
+			rustle_1.play()

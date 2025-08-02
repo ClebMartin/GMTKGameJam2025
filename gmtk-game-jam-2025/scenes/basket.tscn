@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://du3h2edfrwmnj" path="res://assets/sprites/basket.png" id="1_ccfdg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ccfdg"]
-size = Vector2(343, 20)
+size = Vector2(383, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_idgsc"]
 size = Vector2(22, 286)
@@ -20,7 +20,7 @@ scale = Vector2(0.530471, 0.530471)
 texture = ExtResource("1_ccfdg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, 8)
+position = Vector2(0.5, 8)
 shape = SubResource("RectangleShape2D_ccfdg")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://bpbhwm5mdm2e0"]
+[gd_scene load_steps=31 format=3 uid="uid://bpbhwm5mdm2e0"]
 
 [ext_resource type="Script" uid="uid://dg0mexjv5h77a" path="res://scripts/game.gd" id="1_lbhrr"]
 [ext_resource type="Texture2D" uid="uid://8r2yi3u3yop4" path="res://assets/sprites/background.jpg" id="2_0tnpc"]
@@ -22,6 +22,12 @@
 [ext_resource type="Texture2D" uid="uid://bx7nylsnnh26j" path="res://assets/sprites/ui/ui-shape-05.png" id="20_1kice"]
 [ext_resource type="Texture2D" uid="uid://525p74ykys1n" path="res://assets/sprites/ui/ui-shape-06.png" id="21_37s47"]
 [ext_resource type="Shader" uid="uid://diacvormsr5mw" path="res://assets/shaders/Moving-Rainbow-Gradient.gdshader" id="21_bt5mj"]
+[ext_resource type="AudioStream" uid="uid://tmwik6hakq15" path="res://assets/sounds/cartoon-mouth-plop-pop-bubble-01.ogg" id="23_sww3w"]
+[ext_resource type="AudioStream" uid="uid://hf6eet75t0r" path="res://assets/sounds/cartoon-mouth-plop-pop-bubble-02.ogg" id="24_suyxu"]
+[ext_resource type="AudioStream" uid="uid://5b7uc4wfdug2" path="res://assets/sounds/cartoon-mouth-plop-pop-bubble-03.ogg" id="25_sgl2t"]
+[ext_resource type="AudioStream" uid="uid://ceqoiposw7k0y" path="res://assets/sounds/foley-leaves-rustle-medium-01.ogg" id="26_qouja"]
+[ext_resource type="AudioStream" uid="uid://d8s6mwg2i17j" path="res://assets/sounds/foley-leaves-rustle-medium-02.ogg" id="27_wljb1"]
+[ext_resource type="AudioStream" uid="uid://dwrqtgwkf0hf6" path="res://assets/sounds/foley-leaves-rustle-medium-03.ogg" id="28_v2yb1"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_kvpfn"]
 distance = -558.0
@@ -202,6 +208,35 @@ texture = ExtResource("2_iywne")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="killzone"]
 shape = SubResource("WorldBoundaryShape2D_kvpfn")
+
+[node name="SFX" type="Node" parent="."]
+
+[node name="Pop1" type="AudioStreamPlayer2D" parent="SFX"]
+stream = ExtResource("23_sww3w")
+max_polyphony = 3
+
+[node name="Pop2" type="AudioStreamPlayer2D" parent="SFX"]
+stream = ExtResource("24_suyxu")
+max_polyphony = 3
+
+[node name="Pop3" type="AudioStreamPlayer2D" parent="SFX"]
+stream = ExtResource("25_sgl2t")
+max_polyphony = 3
+
+[node name="Rustle1" type="AudioStreamPlayer2D" parent="SFX"]
+stream = ExtResource("26_qouja")
+volume_db = 0.4
+max_polyphony = 3
+
+[node name="Rustle2" type="AudioStreamPlayer2D" parent="SFX"]
+stream = ExtResource("27_wljb1")
+volume_db = 0.4
+max_polyphony = 3
+
+[node name="Rustle3" type="AudioStreamPlayer2D" parent="SFX"]
+stream = ExtResource("28_v2yb1")
+volume_db = 0.4
+max_polyphony = 3
 
 [node name="Ui-shape-05" type="Sprite2D" parent="."]
 position = Vector2(831.5, 113.25)
