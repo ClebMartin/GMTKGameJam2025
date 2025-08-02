@@ -4,7 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://bsghd26ny8bbu" path="res://assets/sprites/rose.png" id="2_62qcp"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_254dx"]
-bounce = 0.2
+friction = 0.85
+bounce = 0.1
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_p7eyx"]
 radius = 62.0
@@ -12,6 +13,7 @@ height = 124.0
 
 [node name="Rose" type="RigidBody2D"]
 physics_material_override = SubResource("PhysicsMaterial_254dx")
+gravity_scale = 0.9
 max_contacts_reported = 1
 script = ExtResource("1_62qcp")
 

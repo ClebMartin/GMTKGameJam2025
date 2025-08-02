@@ -4,7 +4,8 @@
 [ext_resource type="Script" uid="uid://cobwgs1bgy07b" path="res://scripts/sunflower.gd" id="1_mc24c"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_254dx"]
-bounce = 0.2
+friction = 0.9
+bounce = 0.1
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_p7eyx"]
 radius = 84.0

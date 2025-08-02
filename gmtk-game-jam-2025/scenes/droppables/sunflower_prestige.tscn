@@ -5,7 +5,8 @@
 [ext_resource type="Shader" uid="uid://diacvormsr5mw" path="res://assets/shaders/Moving-Rainbow-Gradient.gdshader" id="2_ea063"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_254dx"]
-bounce = 0.2
+friction = 0.9
+bounce = 0.1
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_no27n"]
 shader = ExtResource("2_ea063")

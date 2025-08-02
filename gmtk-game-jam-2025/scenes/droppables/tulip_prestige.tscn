@@ -5,7 +5,8 @@
 [ext_resource type="Shader" uid="uid://diacvormsr5mw" path="res://assets/shaders/Moving-Rainbow-Gradient.gdshader" id="2_x5jhf"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_254dx"]
-bounce = 0.2
+friction = 0.85
+bounce = 0.1
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fg5lo"]
 shader = ExtResource("2_x5jhf")
@@ -19,6 +20,7 @@ height = 104.0
 
 [node name="Tulip_Prestige" type="RigidBody2D"]
 physics_material_override = SubResource("PhysicsMaterial_254dx")
+gravity_scale = 0.8
 max_contacts_reported = 1
 script = ExtResource("1_ej7pr")
 

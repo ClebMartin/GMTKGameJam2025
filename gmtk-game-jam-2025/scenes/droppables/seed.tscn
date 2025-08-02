@@ -4,7 +4,8 @@
 [ext_resource type="Script" uid="uid://cqrco5242e1xq" path="res://scripts/seed.gd" id="1_m4twh"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_254dx"]
-bounce = 0.2
+friction = 0.6
+bounce = 0.25
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_m4twh"]
 radius = 5.0

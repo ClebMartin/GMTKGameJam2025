@@ -4,7 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://daapepie3qhbt" path="res://assets/sprites/daisy.png" id="2_dwdjv"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_254dx"]
-bounce = 0.2
+friction = 0.8
+bounce = 0.15
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_p7eyx"]
 radius = 30.0

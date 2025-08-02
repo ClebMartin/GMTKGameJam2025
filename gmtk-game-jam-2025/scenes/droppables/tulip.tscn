@@ -4,7 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://bswcj836i2ytv" path="res://assets/sprites/tulip.png" id="2_qthxr"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_254dx"]
-bounce = 0.2
+friction = 0.85
+bounce = 0.1
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_p7eyx"]
 radius = 52.0
@@ -12,6 +13,7 @@ height = 104.0
 
 [node name="Tulip" type="RigidBody2D"]
 physics_material_override = SubResource("PhysicsMaterial_254dx")
+gravity_scale = 0.8
 max_contacts_reported = 1
 script = ExtResource("1_qthxr")
 
