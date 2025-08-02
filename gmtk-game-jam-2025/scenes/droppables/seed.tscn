@@ -16,10 +16,12 @@ max_contacts_reported = 1
 script = ExtResource("1_m4twh")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-0.16131, 4.83869)
 scale = Vector2(0.0572626, 0.0572626)
 texture = ExtResource("1_bsos0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.16131, 4.83869)
 shape = SubResource("CircleShape2D_m4twh")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

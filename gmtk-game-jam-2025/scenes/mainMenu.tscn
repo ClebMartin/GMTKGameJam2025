@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://vbsrvkmcel2v"]
+[gd_scene load_steps=13 format=3 uid="uid://vbsrvkmcel2v"]
 
 [ext_resource type="Script" uid="uid://mqjxpwvby6ad" path="res://scripts/main_menu.gd" id="1_qkhwq"]
 [ext_resource type="Texture2D" uid="uid://y8nuelh5vbdp" path="res://assets/sprites/safwan-thottoli-FZBoZOmI9hs-unsplash.jpg" id="2_3d1i7"]
@@ -7,15 +7,16 @@
 [ext_resource type="AudioStream" uid="uid://hf6eet75t0r" path="res://assets/sounds/cartoon-mouth-plop-pop-bubble-02.ogg" id="5_y35fp"]
 [ext_resource type="AudioStream" uid="uid://5b7uc4wfdug2" path="res://assets/sounds/cartoon-mouth-plop-pop-bubble-03.ogg" id="6_dj72i"]
 [ext_resource type="AudioStream" uid="uid://ceqoiposw7k0y" path="res://assets/sounds/foley-leaves-rustle-medium-01.ogg" id="7_6b2wv"]
+[ext_resource type="PackedScene" uid="uid://kspneow8828p" path="res://scenes/utils/BackgroundSounds.tscn" id="8_y35fp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_48ign"]
 size = Vector2(911, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c7uy4"]
-size = Vector2(33, 554)
+size = Vector2(33, 594)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qkhwq"]
-size = Vector2(38.5, 546.5)
+size = Vector2(38.5, 587.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3d1i7"]
 size = Vector2(1028.5, 44)
@@ -45,11 +46,11 @@ disabled = true
 [node name="CollisionArea2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionArea2D"]
-position = Vector2(-17, 269)
+position = Vector2(-17, 289)
 shape = SubResource("RectangleShape2D_c7uy4")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="CollisionArea2D"]
-position = Vector2(977.75, 272.75)
+position = Vector2(977.75, 293.25)
 shape = SubResource("RectangleShape2D_qkhwq")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="CollisionArea2D"]
@@ -143,3 +144,5 @@ bus = &"Reverb"
 stream = ExtResource("7_6b2wv")
 volume_db = 0.4
 max_polyphony = 3
+
+[node name="BackgroundMusic" parent="." instance=ExtResource("8_y35fp")]
