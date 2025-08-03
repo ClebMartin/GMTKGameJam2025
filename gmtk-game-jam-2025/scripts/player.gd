@@ -97,3 +97,4 @@ func _set_up_list():
 
 func _on_main_get_highest_droppable_id(id) -> void:
 	_highest_droppable_id_achieved = id
+	print(id)

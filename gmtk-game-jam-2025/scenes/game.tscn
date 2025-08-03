@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://c2qa0oan4fjgc" path="res://scenes/utils/BackgroundMusic.tscn" id="5_iywne"]
 [ext_resource type="PackedScene" uid="uid://kspneow8828p" path="res://scenes/utils/BackgroundSounds.tscn" id="6_p57ef"]
 [ext_resource type="Texture2D" uid="uid://ba8ejg10vkj6" path="res://assets/sprites/basketFront@0.33x.png" id="6_vtaks"]
-[ext_resource type="Shader" uid="uid://dagrk5rdbpech" path="res://assets/shaders/SpriteShadow.gdshader" id="8_qouja"]
+[ext_resource type="Shader" path="res://assets/shaders/SpriteShadow.gdshader" id="8_qouja"]
 [ext_resource type="Texture2D" uid="uid://bfeoe0f0ddfhf" path="res://assets/sprites/parchment2.png" id="8_sgl2t"]
 [ext_resource type="Texture2D" uid="uid://dwav2g2fhlsfl" path="res://assets/sprites/seed.png" id="8_ssvqc"]
 [ext_resource type="Texture2D" uid="uid://coshgaemn2pao" path="res://assets/sprites/leaf.png" id="9_264po"]
@@ -406,17 +406,14 @@ shape = SubResource("WorldBoundaryShape2D_kvpfn")
 [node name="Pop1" type="AudioStreamPlayer2D" parent="SFX"]
 stream = ExtResource("23_sww3w")
 max_polyphony = 3
-bus = &"Pop"
 
 [node name="Pop2" type="AudioStreamPlayer2D" parent="SFX"]
 stream = ExtResource("24_suyxu")
 max_polyphony = 3
-bus = &"Pop"
 
 [node name="Pop3" type="AudioStreamPlayer2D" parent="SFX"]
 stream = ExtResource("25_sgl2t")
 max_polyphony = 3
-bus = &"Pop"
 
 [node name="Rustle1" type="AudioStreamPlayer2D" parent="SFX"]
 stream = ExtResource("26_qouja")
