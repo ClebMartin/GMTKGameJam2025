@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://cx4mtl7f3dcha"]
 
-[ext_resource type="Script" path="res://scripts/tulip__prestige.gd" id="1_ej7pr"]
+[ext_resource type="Script" uid="uid://cmu3af52vq45f" path="res://scripts/tulip__prestige.gd" id="1_ej7pr"]
 [ext_resource type="Texture2D" uid="uid://bswcj836i2ytv" path="res://assets/sprites/tulip.png" id="2_ej7pr"]
 [ext_resource type="Shader" uid="uid://diacvormsr5mw" path="res://assets/shaders/Moving-Rainbow-Gradient.gdshader" id="2_x5jhf"]
 
@@ -27,7 +27,7 @@ script = ExtResource("1_ej7pr")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_fg5lo")
 position = Vector2(1, 5.68434e-14)
-scale = Vector2(0.380605, 0.380605)
+scale = Vector2(0.323, 0.323)
 texture = ExtResource("2_ej7pr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

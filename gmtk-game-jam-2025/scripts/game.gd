@@ -24,6 +24,16 @@ var _sunflower_prestige_scene = preload("res://scenes/droppables/sunflower_prest
 @onready var rustle_1: AudioStreamPlayer2D = $SFX/Rustle1
 @onready var rustle_2: AudioStreamPlayer2D = $SFX/Rustle2
 @onready var rustle_3: AudioStreamPlayer2D = $SFX/Rustle3
+@onready var tad_1: AudioStreamPlayer2D = $SFX/Tad1
+@onready var tad_2: AudioStreamPlayer2D = $SFX/Tad2
+@onready var tad_3: AudioStreamPlayer2D = $SFX/Tad3
+@onready var tad_4: AudioStreamPlayer2D = $SFX/Tad4
+@onready var tad_5: AudioStreamPlayer2D = $SFX/Tad5
+@onready var tad_6: AudioStreamPlayer2D = $SFX/Tad6
+@onready var tad_7: AudioStreamPlayer2D = $SFX/Tad7
+@onready var tad_8: AudioStreamPlayer2D = $SFX/Tad8
+@onready var tad_9: AudioStreamPlayer2D = $SFX/Tad9
+
 
 @onready var _seed_img = $QueueGroup/Seed
 @onready var _leaf_img = $QueueGroup/Leaf
@@ -108,11 +118,6 @@ func _spawn_next_evolution(position, droppable_id, isPrestiged = false):
 	# into Bumblebee, etc.
 	var droppable_id_to_spawn = droppable_id + 1
 	
-	# If we want to revert the "break a flower" change, get rid of these 3 lines 
-	if droppable_id_to_spawn > _highest_droppable_id and droppable_id_to_spawn < 8:
-		_highest_droppable_id = droppable_id_to_spawn
-		get_highest_droppable_id.emit(_highest_droppable_id)
-	
 	if isPrestiged and droppable_id_to_spawn < 8:
 		droppable_id_to_spawn += 8
 	
@@ -135,6 +140,9 @@ func _spawn_next_evolution(position, droppable_id, isPrestiged = false):
 	add_child(particle_inst)
 	particle_inst.position = position
 	_play_random_rustle()
+	
+	#if droppable_id_to_spawn > 5 and _rng.randi_range(1, 3) == 1:
+	_play_random_tad()
 
 func _get_score():
 	return _score
@@ -239,15 +247,38 @@ func _play_random_pop():
 func _play_random_rustle():
 	var temp = _rng.randi_range(0,2)
 	match temp:
-		3:
+		0:
 			rustle_1.play()
-		4:
+		1:
 			rustle_2.play()
-		5:
+		2:
 			rustle_3.play()
 		_:
 			rustle_1.play()
 
+func _play_random_tad():
+	var temp = _rng.randi_range(0,8)
+	match temp:
+		0:
+			tad_1.play()
+		1:
+			tad_2.play()
+		2:
+			tad_3.play()
+		3:
+			tad_4.play()
+		4:
+			tad_5.play()
+		5:
+			tad_6.play()
+		6:
+			tad_7.play()
+		7:
+			tad_8.play()
+		8:
+			tad_9.play()
+		_:
+			tad_1.play()
 
 func _on_player__player_holding_droppable(id) -> void:
 	if name_text != null:
