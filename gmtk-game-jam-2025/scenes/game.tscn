@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://bpbhwm5mdm2e0"]
+[gd_scene load_steps=40 format=3 uid="uid://bpbhwm5mdm2e0"]
 
 [ext_resource type="Script" uid="uid://dg0mexjv5h77a" path="res://scripts/game.gd" id="1_lbhrr"]
 [ext_resource type="Texture2D" uid="uid://8r2yi3u3yop4" path="res://assets/sprites/background.jpg" id="2_0tnpc"]
@@ -11,9 +11,12 @@
 [ext_resource type="PackedScene" uid="uid://c2qa0oan4fjgc" path="res://scenes/utils/BackgroundMusic.tscn" id="5_iywne"]
 [ext_resource type="PackedScene" uid="uid://kspneow8828p" path="res://scenes/utils/BackgroundSounds.tscn" id="6_p57ef"]
 [ext_resource type="Texture2D" uid="uid://ba8ejg10vkj6" path="res://assets/sprites/basketFront@0.33x.png" id="6_vtaks"]
+[ext_resource type="Shader" uid="uid://dagrk5rdbpech" path="res://assets/shaders/SpriteShadow.gdshader" id="8_qouja"]
+[ext_resource type="Texture2D" uid="uid://bfeoe0f0ddfhf" path="res://assets/sprites/parchment2.png" id="8_sgl2t"]
 [ext_resource type="Texture2D" uid="uid://dwav2g2fhlsfl" path="res://assets/sprites/seed.png" id="8_ssvqc"]
 [ext_resource type="Texture2D" uid="uid://coshgaemn2pao" path="res://assets/sprites/leaf.png" id="9_264po"]
 [ext_resource type="Texture2D" uid="uid://daapepie3qhbt" path="res://assets/sprites/daisy.png" id="10_1kice"]
+[ext_resource type="Texture2D" uid="uid://co82mvxuvbjst" path="res://assets/sprites/line1.png" id="10_qouja"]
 [ext_resource type="Texture2D" uid="uid://bw8s21ey2w0or" path="res://assets/sprites/carnation_bottanical.png" id="11_5newe"]
 [ext_resource type="PackedScene" uid="uid://dvn8h25h1mucl" path="res://scenes/killzone.tscn" id="11_kvpfn"]
 [ext_resource type="Texture2D" uid="uid://br8e7jioko3qp" path="res://assets/sprites/bluebonnet.png" id="12_37s47"]
@@ -29,6 +32,35 @@
 [ext_resource type="AudioStream" uid="uid://ceqoiposw7k0y" path="res://assets/sounds/foley-leaves-rustle-medium-01.ogg" id="26_qouja"]
 [ext_resource type="AudioStream" uid="uid://d8s6mwg2i17j" path="res://assets/sounds/foley-leaves-rustle-medium-02.ogg" id="27_wljb1"]
 [ext_resource type="AudioStream" uid="uid://dwrqtgwkf0hf6" path="res://assets/sounds/foley-leaves-rustle-medium-03.ogg" id="28_v2yb1"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_v2yb1"]
+shader = ExtResource("8_qouja")
+shader_parameter/shadow_offset = Vector2(10, 10)
+shader_parameter/shadow_color = Color(0, 0, 0, 0.3)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wljb1"]
+shader = ExtResource("8_qouja")
+shader_parameter/shadow_offset = Vector2(-10, 10)
+shader_parameter/shadow_color = Color(0, 0, 0, 0.3)
+
+[sub_resource type="LabelSettings" id="LabelSettings_sgl2t"]
+line_spacing = -10.0
+font_size = 32
+font_color = Color(0.254902, 0.215686, 0.207843, 1)
+outline_size = 1
+outline_color = Color(0.254902, 0.215686, 0.207843, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_qouja"]
+line_spacing = -10.0
+font_size = 32
+font_color = Color(0.254902, 0.215686, 0.207843, 1)
+outline_size = 1
+outline_color = Color(0.254902, 0.215686, 0.207843, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sgl2t"]
+shader = ExtResource("8_qouja")
+shader_parameter/shadow_offset = Vector2(-5, 10)
+shader_parameter/shadow_color = Color(0, 0, 0, 0.3)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_kvpfn"]
 distance = -558.0
@@ -49,14 +81,19 @@ color = Color(0.909217, 0.88742, 0.860602, 1)
 
 [node name="Background" type="Sprite2D" parent="."]
 self_modulate = Color(1, 1, 1, 0.0980392)
-position = Vector2(458.949, 229)
+position = Vector2(472, 229)
 scale = Vector2(0.722437, 0.722437)
 texture = ExtResource("2_0tnpc")
+region_enabled = true
+region_rect = Rect2(150, 150, 1352.48, 883.744)
 
 [node name="Ground_0_25x" type="Sprite2D" parent="."]
-position = Vector2(481.554, 524)
+modulate = Color(0.184314, 0.270588, 0.101961, 0.85098)
+position = Vector2(474, 451)
 scale = Vector2(0.847222, 0.847222)
 texture = ExtResource("3_suyxu")
+region_enabled = true
+region_rect = Rect2(0, -36.75, 1167, 233)
 
 [node name="behindBasket" type="ColorRect" parent="."]
 offset_left = 315.0
@@ -64,6 +101,13 @@ offset_top = 229.0
 offset_right = 669.0
 offset_bottom = 502.0
 color = Color(0.754425, 0.70996, 0.64893, 1)
+
+[node name="Basket_Sprite_Shadow" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.745098)
+material = SubResource("ShaderMaterial_v2yb1")
+position = Vector2(473, 505.5)
+scale = Vector2(0.933333, 0.048421)
+texture = ExtResource("2_gee14")
 
 [node name="Basket_Sprite" type="Sprite2D" parent="."]
 self_modulate = Color(1, 1, 1, 0.745098)
@@ -82,7 +126,7 @@ texture = ExtResource("6_vtaks")
 position = Vector2(492, 498)
 
 [node name="Player" parent="." instance=ExtResource("3_lnu2h")]
-position = Vector2(480, 72)
+position = Vector2(480, 90)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(480, 272)
@@ -94,7 +138,8 @@ offset_left = 155.0
 offset_top = -76.0
 offset_right = 402.0
 offset_bottom = 152.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0.254902, 0.215686, 0.207843, 1)
+theme_override_colors/font_outline_color = Color(0.254902, 0.215686, 0.207843, 1)
 theme_override_constants/outline_size = 2
 theme_override_fonts/font = ExtResource("4_lbhrr")
 theme_override_font_sizes/font_size = 200
@@ -105,21 +150,141 @@ offset_left = 32.0
 offset_top = 22.0
 offset_right = 134.0
 offset_bottom = 96.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0.254902, 0.215686, 0.207843, 1)
+theme_override_colors/font_outline_color = Color(0.254902, 0.215686, 0.207843, 1)
 theme_override_constants/outline_size = 2
 theme_override_fonts/font = ExtResource("4_lbhrr")
 theme_override_font_sizes/font_size = 64
 text = "Score:"
 
+[node name="BestScoreGroup" type="Node2D" parent="."]
+
+[node name="BestScoreLabel" type="Label" parent="BestScoreGroup"]
+offset_left = 154.0
+offset_top = 36.0
+offset_right = 401.0
+offset_bottom = 264.0
+theme_override_colors/font_color = Color(0.254902, 0.215686, 0.207843, 1)
+theme_override_colors/font_outline_color = Color(0.254902, 0.215686, 0.207843, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("4_lbhrr")
+theme_override_font_sizes/font_size = 92
+text = "0"
+
+[node name="BestScoreText" type="Label" parent="BestScoreGroup"]
+offset_left = 77.0
+offset_top = 79.0
+offset_right = 201.0
+offset_bottom = 153.0
+theme_override_colors/font_color = Color(0.254902, 0.215686, 0.207843, 1)
+theme_override_colors/font_outline_color = Color(0.254902, 0.215686, 0.207843, 1)
+theme_override_constants/outline_size = 1
+theme_override_fonts/font = ExtResource("4_lbhrr")
+theme_override_font_sizes/font_size = 32
+text = "Best:"
+
+[node name="Description" type="Node2D" parent="."]
+
+[node name="ParchmentLongShadow" type="Sprite2D" parent="Description"]
+material = SubResource("ShaderMaterial_wljb1")
+position = Vector2(147.417, 285.378)
+rotation = 1.57079
+scale = Vector2(0.544261, 0.57397)
+texture = ExtResource("8_sgl2t")
+
+[node name="ParchmentLong" type="Sprite2D" parent="Description"]
+position = Vector2(147.417, 285.378)
+rotation = 1.57079
+scale = Vector2(0.544261, 0.57397)
+texture = ExtResource("8_sgl2t")
+
+[node name="Line1" type="Sprite2D" parent="Description"]
+position = Vector2(128.5, 191)
+scale = Vector2(0.279555, 0.632353)
+texture = ExtResource("10_qouja")
+
+[node name="NameLabel" type="Label" parent="Description"]
+offset_left = 36.5
+offset_top = 161.0
+offset_right = 255.5
+offset_bottom = 199.0
+theme_override_colors/font_color = Color(0.254902, 0.215686, 0.207843, 1)
+theme_override_colors/font_outline_color = Color(0.254902, 0.215686, 0.207843, 1)
+theme_override_constants/outline_size = 1
+theme_override_fonts/font = ExtResource("4_lbhrr")
+theme_override_font_sizes/font_size = 32
+text = "Genus / Species:"
+
+[node name="NameText" type="Label" parent="Description"]
+offset_left = 35.0
+offset_top = 199.0
+offset_right = 246.0
+offset_bottom = 265.0
+theme_override_colors/font_color = Color(0.254902, 0.215686, 0.207843, 1)
+theme_override_colors/font_outline_color = Color(0.254902, 0.215686, 0.207843, 1)
+theme_override_constants/outline_size = 1
+theme_override_fonts/font = ExtResource("4_lbhrr")
+theme_override_font_sizes/font_size = 32
+text = "Don't let the flowers overfill the basket!"
+label_settings = SubResource("LabelSettings_sgl2t")
+autowrap_mode = 3
+
+[node name="Line2" type="Sprite2D" parent="Description"]
+position = Vector2(120.5, 317)
+scale = Vector2(0.279555, 0.632353)
+texture = ExtResource("10_qouja")
+flip_h = true
+
+[node name="DescriptionLabel" type="Label" parent="Description"]
+offset_left = 31.5
+offset_top = 286.0
+offset_right = 259.5
+offset_bottom = 324.0
+theme_override_colors/font_color = Color(0.254902, 0.215686, 0.207843, 1)
+theme_override_colors/font_outline_color = Color(0.254902, 0.215686, 0.207843, 1)
+theme_override_constants/outline_size = 1
+theme_override_fonts/font = ExtResource("4_lbhrr")
+theme_override_font_sizes/font_size = 32
+text = "Field Notes:"
+
+[node name="DescriptionText" type="Label" parent="Description"]
+offset_left = 32.0
+offset_top = 325.0
+offset_right = 245.0
+offset_bottom = 419.0
+theme_override_colors/font_color = Color(0.254902, 0.215686, 0.207843, 1)
+theme_override_colors/font_outline_color = Color(0.254902, 0.215686, 0.207843, 1)
+theme_override_constants/outline_size = 1
+theme_override_fonts/font = ExtResource("4_lbhrr")
+theme_override_font_sizes/font_size = 32
+text = "- Move with mouse
+- Drop with mouse/spacebar"
+label_settings = SubResource("LabelSettings_qouja")
+autowrap_mode = 3
+
 [node name="QueueGroup" type="Node2D" parent="."]
 position = Vector2(0, -40)
+
+[node name="ParchmentLongShadow" type="Sprite2D" parent="QueueGroup"]
+material = SubResource("ShaderMaterial_sgl2t")
+position = Vector2(830, 154)
+rotation = -1.57079
+scale = Vector2(0.340946, 0.513799)
+texture = ExtResource("8_sgl2t")
+
+[node name="ParchmentLong" type="Sprite2D" parent="QueueGroup"]
+position = Vector2(830, 154)
+rotation = -1.57079
+scale = Vector2(0.340946, 0.513799)
+texture = ExtResource("8_sgl2t")
 
 [node name="QueueText" type="Label" parent="QueueGroup"]
 offset_left = 775.0
 offset_top = 76.0
 offset_right = 877.0
 offset_bottom = 150.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0.254902, 0.215686, 0.207843, 1)
+theme_override_colors/font_outline_color = Color(0.254902, 0.215686, 0.207843, 1)
 theme_override_constants/outline_size = 2
 theme_override_fonts/font = ExtResource("4_lbhrr")
 theme_override_font_sizes/font_size = 64
@@ -151,48 +316,51 @@ texture = ExtResource("11_5newe")
 
 [node name="Bluebonnet" type="Sprite2D" parent="QueueGroup"]
 visible = false
-position = Vector2(826, 205)
+position = Vector2(828.82, 179.14)
+rotation = 1.12225
 scale = Vector2(0.231846, 0.231846)
 texture = ExtResource("12_37s47")
 
 [node name="Tulip" type="Sprite2D" parent="QueueGroup"]
 visible = false
-position = Vector2(825, 195)
-scale = Vector2(0.350435, 0.350435)
+position = Vector2(825, 181.08)
+scale = Vector2(0.3, 0.3)
 texture = ExtResource("13_bt5mj")
 
 [node name="Rose" type="Sprite2D" parent="QueueGroup"]
 visible = false
-position = Vector2(826, 196)
-scale = Vector2(0.205243, 0.205243)
+position = Vector2(828, 180)
+scale = Vector2(0.151433, 0.151433)
 texture = ExtResource("14_e1j6l")
 
 [node name="Sunflower" type="Sprite2D" parent="QueueGroup"]
 visible = false
-position = Vector2(826, 204)
-scale = Vector2(0.270265, 0.270265)
+position = Vector2(828, 184)
+scale = Vector2(0.204993, 0.204993)
 texture = ExtResource("15_pl11u")
 
 [node name="NumFlowerGroup" type="Node2D" parent="."]
 
 [node name="NumFlowerLabel" type="Label" parent="NumFlowerGroup"]
-offset_left = 142.0
-offset_top = 357.0
-offset_right = 440.0
-offset_bottom = 585.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+offset_left = 128.0
+offset_top = 373.0
+offset_right = 426.0
+offset_bottom = 601.0
+theme_override_colors/font_color = Color(0.913725, 0.886275, 0.847059, 1)
+theme_override_colors/font_outline_color = Color(0.913725, 0.886275, 0.847059, 1)
 theme_override_constants/outline_size = 2
 theme_override_fonts/font = ExtResource("4_lbhrr")
 theme_override_font_sizes/font_size = 200
 text = "0"
 
 [node name="NumFlowerText" type="Label" parent="NumFlowerGroup"]
-offset_left = 44.0
-offset_top = 461.0
-offset_right = 182.0
-offset_bottom = 518.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 2
+offset_left = 30.0
+offset_top = 477.0
+offset_right = 168.0
+offset_bottom = 534.0
+theme_override_colors/font_color = Color(0.913725, 0.886275, 0.847059, 1)
+theme_override_colors/font_outline_color = Color(0.913725, 0.886275, 0.847059, 1)
+theme_override_constants/outline_size = 1
 theme_override_fonts/font = ExtResource("4_lbhrr")
 theme_override_font_sizes/font_size = 40
 text = "Flowers:"
@@ -213,6 +381,7 @@ texture = ExtResource("2_iywne")
 [node name="killzone" parent="." instance=ExtResource("11_kvpfn")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="killzone"]
+position = Vector2(9, 64)
 shape = SubResource("WorldBoundaryShape2D_kvpfn")
 
 [node name="SFX" type="Node" parent="."]
@@ -220,14 +389,17 @@ shape = SubResource("WorldBoundaryShape2D_kvpfn")
 [node name="Pop1" type="AudioStreamPlayer2D" parent="SFX"]
 stream = ExtResource("23_sww3w")
 max_polyphony = 3
+bus = &"Pop"
 
 [node name="Pop2" type="AudioStreamPlayer2D" parent="SFX"]
 stream = ExtResource("24_suyxu")
 max_polyphony = 3
+bus = &"Pop"
 
 [node name="Pop3" type="AudioStreamPlayer2D" parent="SFX"]
 stream = ExtResource("25_sgl2t")
 max_polyphony = 3
+bus = &"Pop"
 
 [node name="Rustle1" type="AudioStreamPlayer2D" parent="SFX"]
 stream = ExtResource("26_qouja")
@@ -255,49 +427,49 @@ scale = Vector2(0.08, 0.08)
 
 [node name="Ui-shape-01" type="Sprite2D" parent="EvolutionWheel"]
 material = SubResource("ShaderMaterial_bhx41")
-position = Vector2(2030.23, 859.954)
+position = Vector2(2010.33, 713.659)
 rotation = 1.11522
 scale = Vector2(5.93916, 5.95755)
 texture = ExtResource("21_37s47")
 
 [node name="Bluebonnet" type="Sprite2D" parent="EvolutionWheel"]
-position = Vector2(1775, 1787.5)
+position = Vector2(1755.1, 1641.21)
 rotation = 0.241677
 scale = Vector2(1.54268, 1.54268)
 texture = ExtResource("12_37s47")
 
 [node name="Daisy" type="Sprite2D" parent="EvolutionWheel"]
-position = Vector2(3225, 1237.5)
+position = Vector2(3205.1, 1091.21)
 scale = Vector2(1.41438, 1.41438)
 texture = ExtResource("10_1kice")
 
 [node name="Leaf" type="Sprite2D" parent="EvolutionWheel"]
-position = Vector2(3175, 400)
+position = Vector2(3155.1, 253.705)
 scale = Vector2(2.2911, 2.2911)
 texture = ExtResource("9_264po")
 
 [node name="Rose" type="Sprite2D" parent="EvolutionWheel"]
-position = Vector2(937.5, 362.5)
+position = Vector2(917.605, 216.205)
 scale = Vector2(1.45051, 1.45051)
 texture = ExtResource("14_e1j6l")
 
 [node name="Seed" type="Sprite2D" parent="EvolutionWheel"]
-position = Vector2(2800, -225)
+position = Vector2(2780.1, -371.295)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("8_ssvqc")
 
 [node name="Sunflower" type="Sprite2D" parent="EvolutionWheel"]
-position = Vector2(1737.5, -350)
+position = Vector2(1717.6, -496.295)
 scale = Vector2(2.14571, 2.14571)
 texture = ExtResource("15_pl11u")
 
 [node name="Tulip" type="Sprite2D" parent="EvolutionWheel"]
-position = Vector2(1062.5, 1425)
+position = Vector2(1042.6, 1278.71)
 scale = Vector2(2.25694, 2.25694)
 texture = ExtResource("13_bt5mj")
 
 [node name="CarnationBottanical" type="Sprite2D" parent="EvolutionWheel"]
-position = Vector2(2612.5, 1925)
+position = Vector2(2592.6, 1778.71)
 scale = Vector2(1.2699, 1.2699)
 texture = ExtResource("11_5newe")
 
@@ -308,4 +480,6 @@ rotation = -0.000532711
 scale = Vector2(7.92476, 8.33626)
 texture = ExtResource("20_1kice")
 
+[connection signal="get_highest_droppable_id" from="." to="Player" method="_on_main_get_highest_droppable_id"]
+[connection signal="_player_holding_droppable" from="Player" to="." method="_on_player__player_holding_droppable"]
 [connection signal="dropped_droppable" from="Player" to="." method="_on_player_dropped_droppable"]

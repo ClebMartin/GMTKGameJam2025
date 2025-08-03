@@ -50,6 +50,8 @@ var _droppable_list = [_seed_scene, _leaf_scene, _daisy_scene, _carnation_scene,
 var _score = 0
 var _drop_value = 1 # score addition for everytime you successfully drop a droppable
 
+@onready var BestScoreLabel: Label = $BestScoreGroup/BestScoreLabel
+
 @onready var NumFlowerLabel = $NumFlowerGroup/NumFlowerLabel
 var _num_flowers_dropped = 0
 
@@ -57,8 +59,17 @@ var PlayerNode
 
 @onready var _rng = RandomNumberGenerator.new()
 
+var _highest_droppable_id = 3
+signal get_highest_droppable_id
+
+var _Taxonomy_List
+var _Field_Notes_List
+	
+@onready var name_text: Label = $Description/NameText
+@onready var description_text: Label = $Description/DescriptionText
+
 func _ready() -> void:
-	_set_up_list()
+	await _set_up_list()
 	PlayerNode = get_node("Player")
 	PlayerNode.next_droppable_id_signal.connect(_next_drop_id)
 	
@@ -67,6 +78,7 @@ func _ready() -> void:
 	_next_droppable.show()
 	
 	ScoreLabel.text = str(_score)
+	BestScoreLabel.text = str(SaveLoad.highest_record)
 
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("close"):
@@ -95,6 +107,11 @@ func _spawn_next_evolution(position, droppable_id, isPrestiged = false):
 	# This check will need to be more robust so that sunflower doesn't turn
 	# into Bumblebee, etc.
 	var droppable_id_to_spawn = droppable_id + 1
+	
+	# If we want to revert the "break a flower" change, get rid of these 3 lines 
+	if droppable_id_to_spawn > _highest_droppable_id and droppable_id_to_spawn < 8:
+		_highest_droppable_id = droppable_id_to_spawn
+		get_highest_droppable_id.emit(_highest_droppable_id)
 	
 	if isPrestiged and droppable_id_to_spawn < 8:
 		droppable_id_to_spawn += 8
@@ -125,6 +142,11 @@ func _get_score():
 func _set_score(value):
 	_score += value
 	ScoreLabel.text = str(_score)
+	
+	#high score check
+	if _score > SaveLoad.highest_record:
+		SaveLoad.highest_record = _score
+		BestScoreLabel.text = str(_score)
 
 func _reset_score():
 	# This isn't called anywhere yet
@@ -180,6 +202,28 @@ func _set_up_list():
 		_sunflower_img
 	]
 	
+	_Taxonomy_List = [
+		"Seed",
+		"Leaf",
+		"Bellis perennis\n(Daisy)",
+		"Dianthus caryophyllus\n(Carnation)",
+		"Lupinus texensis\n(Bluebonnet)",
+		"Tulipa gesneriana\n(Tulip)",
+		"Rosa meldomonac\n(Rose)",
+		"Helianthus annuus\n(Sunflower)"
+	]
+	
+	_Field_Notes_List = [
+		"Extravagance or the potential for new beginnings",
+		"growth, renewal, and hope",
+		"purity, innocence, and new beginnings",
+		"fascination, love, and distinction",
+		"admiration, sacrifice, and resilience",
+		"perfect love, passion, and new beginnings",
+		"love, beauty, and passion",
+		"happiness, adoration, and loyalty",
+	]
+	
 func _play_random_pop():
 	var temp = _rng.randi_range(0,2)
 	match temp:
@@ -203,3 +247,10 @@ func _play_random_rustle():
 			rustle_3.play()
 		_:
 			rustle_1.play()
+
+
+func _on_player__player_holding_droppable(id) -> void:
+	if name_text != null:
+		name_text.text = _Taxonomy_List[id]
+	if description_text != null:
+		description_text.text = _Field_Notes_List[id]
