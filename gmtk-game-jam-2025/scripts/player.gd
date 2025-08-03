@@ -24,6 +24,7 @@ signal dropped_droppable
 
 var _current_droppable
 var _current_droppable_id = 0
+signal _player_holding_droppable
 
 # For "Queue" in Game
 var _next_droppable_id
@@ -46,6 +47,7 @@ func _spawn_new_droppable():
 	_next_droppable_id = _pick_random_droppable()
 	_current_droppable = _droppable_img_list[_current_droppable_id]
 	_current_droppable.show()
+	_player_holding_droppable.emit(_current_droppable_id)
 	next_droppable_id_signal.emit(_next_droppable_id)
 
 func _ready():

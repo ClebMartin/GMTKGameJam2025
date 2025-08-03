@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://bpbhwm5mdm2e0"]
+[gd_scene load_steps=38 format=3 uid="uid://bpbhwm5mdm2e0"]
 
 [ext_resource type="Script" uid="uid://dg0mexjv5h77a" path="res://scripts/game.gd" id="1_lbhrr"]
 [ext_resource type="Texture2D" uid="uid://8r2yi3u3yop4" path="res://assets/sprites/background.jpg" id="2_0tnpc"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://dwav2g2fhlsfl" path="res://assets/sprites/seed.png" id="8_ssvqc"]
 [ext_resource type="Texture2D" uid="uid://coshgaemn2pao" path="res://assets/sprites/leaf.png" id="9_264po"]
 [ext_resource type="Texture2D" uid="uid://daapepie3qhbt" path="res://assets/sprites/daisy.png" id="10_1kice"]
+[ext_resource type="Texture2D" uid="uid://co82mvxuvbjst" path="res://assets/sprites/line1.png" id="10_qouja"]
 [ext_resource type="Texture2D" uid="uid://bw8s21ey2w0or" path="res://assets/sprites/carnation_bottanical.png" id="11_5newe"]
 [ext_resource type="PackedScene" uid="uid://dvn8h25h1mucl" path="res://scenes/killzone.tscn" id="11_kvpfn"]
 [ext_resource type="Texture2D" uid="uid://br8e7jioko3qp" path="res://assets/sprites/bluebonnet.png" id="12_37s47"]
@@ -35,6 +36,20 @@
 shader = ExtResource("8_qouja")
 shader_parameter/shadow_offset = Vector2(-10, 10)
 shader_parameter/shadow_color = Color(0, 0, 0, 0.3)
+
+[sub_resource type="LabelSettings" id="LabelSettings_sgl2t"]
+line_spacing = -10.0
+font_size = 32
+font_color = Color(0.254902, 0.215686, 0.207843, 1)
+outline_size = 1
+outline_color = Color(0.254902, 0.215686, 0.207843, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_qouja"]
+line_spacing = -10.0
+font_size = 32
+font_color = Color(0.254902, 0.215686, 0.207843, 1)
+outline_size = 1
+outline_color = Color(0.254902, 0.215686, 0.207843, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_sgl2t"]
 shader = ExtResource("8_qouja")
@@ -162,11 +177,16 @@ rotation = 1.57079
 scale = Vector2(0.544261, 0.57397)
 texture = ExtResource("8_sgl2t")
 
+[node name="Line1" type="Sprite2D" parent="Description"]
+position = Vector2(130, 180)
+scale = Vector2(0.279555, 0.632353)
+texture = ExtResource("10_qouja")
+
 [node name="NameLabel" type="Label" parent="Description"]
-offset_left = 40.417
-offset_top = 148.378
-offset_right = 259.417
-offset_bottom = 186.378
+offset_left = 38.0
+offset_top = 150.0
+offset_right = 257.0
+offset_bottom = 188.0
 theme_override_colors/font_color = Color(0.254902, 0.215686, 0.207843, 1)
 theme_override_colors/font_outline_color = Color(0.254902, 0.215686, 0.207843, 1)
 theme_override_constants/outline_size = 1
@@ -175,22 +195,30 @@ theme_override_font_sizes/font_size = 32
 text = "Genus / Species:"
 
 [node name="NameText" type="Label" parent="Description"]
-offset_left = 40.417
-offset_top = 185.0
-offset_right = 259.417
-offset_bottom = 223.0
+offset_left = 37.0
+offset_top = 192.0
+offset_right = 248.0
+offset_bottom = 258.0
 theme_override_colors/font_color = Color(0.254902, 0.215686, 0.207843, 1)
 theme_override_colors/font_outline_color = Color(0.254902, 0.215686, 0.207843, 1)
 theme_override_constants/outline_size = 1
 theme_override_fonts/font = ExtResource("4_lbhrr")
 theme_override_font_sizes/font_size = 32
-text = "Name goes here"
+text = "Don't let the flower basket overfill!"
+label_settings = SubResource("LabelSettings_sgl2t")
+autowrap_mode = 3
+
+[node name="Line2" type="Sprite2D" parent="Description"]
+position = Vector2(124, 308)
+scale = Vector2(0.279555, 0.632353)
+texture = ExtResource("10_qouja")
+flip_h = true
 
 [node name="DescriptionLabel" type="Label" parent="Description"]
-offset_left = 39.417
-offset_top = 251.378
-offset_right = 267.417
-offset_bottom = 289.378
+offset_left = 35.0
+offset_top = 277.0
+offset_right = 263.0
+offset_bottom = 315.0
 theme_override_colors/font_color = Color(0.254902, 0.215686, 0.207843, 1)
 theme_override_colors/font_outline_color = Color(0.254902, 0.215686, 0.207843, 1)
 theme_override_constants/outline_size = 1
@@ -199,16 +227,18 @@ theme_override_font_sizes/font_size = 32
 text = "Field Notes:"
 
 [node name="DescriptionText" type="Label" parent="Description"]
-offset_left = 39.417
-offset_top = 294.0
-offset_right = 267.417
-offset_bottom = 332.0
+offset_left = 33.0
+offset_top = 320.0
+offset_right = 246.0
+offset_bottom = 414.0
 theme_override_colors/font_color = Color(0.254902, 0.215686, 0.207843, 1)
 theme_override_colors/font_outline_color = Color(0.254902, 0.215686, 0.207843, 1)
 theme_override_constants/outline_size = 1
 theme_override_fonts/font = ExtResource("4_lbhrr")
 theme_override_font_sizes/font_size = 32
-text = "Notes go here"
+text = "- Move with mouse
+- Drop with mouse/spacebar"
+label_settings = SubResource("LabelSettings_qouja")
 autowrap_mode = 3
 
 [node name="QueueGroup" type="Node2D" parent="."]
@@ -330,6 +360,7 @@ texture = ExtResource("2_iywne")
 [node name="killzone" parent="." instance=ExtResource("11_kvpfn")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="killzone"]
+position = Vector2(9, 64)
 shape = SubResource("WorldBoundaryShape2D_kvpfn")
 
 [node name="SFX" type="Node" parent="."]
@@ -429,4 +460,5 @@ scale = Vector2(7.92476, 8.33626)
 texture = ExtResource("20_1kice")
 
 [connection signal="get_highest_droppable_id" from="." to="Player" method="_on_main_get_highest_droppable_id"]
+[connection signal="_player_holding_droppable" from="Player" to="." method="_on_player__player_holding_droppable"]
 [connection signal="dropped_droppable" from="Player" to="." method="_on_player_dropped_droppable"]

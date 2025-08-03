@@ -62,8 +62,33 @@ var PlayerNode
 var _highest_droppable_id = 3
 signal get_highest_droppable_id
 
+var _Taxonomy_List = [
+		"Flower seed",
+		"Flower leaf",
+		"Bellis perennis",
+		"Dianthus caryophyllus",
+		"Lupinus texensis",
+		"Tulipa gesneriana",
+		"Rosa meldomonac",
+		"Helianthus annuus"
+	]
+	
+var _Field_Notes_List = [
+		"Description for Seed",
+		"Description for Leaf",
+		"Description for Daisy",
+		"Description for Carnation",
+		"Description for Bluebonnet",
+		"Description for Tulip",
+		"Description for Rose",
+		"Description for Sunflower",
+	]
+	
+@onready var name_text: Label = $Description/NameText
+@onready var description_text: Label = $Description/DescriptionText
+
 func _ready() -> void:
-	_set_up_list()
+	await _set_up_list()
 	PlayerNode = get_node("Player")
 	PlayerNode.next_droppable_id_signal.connect(_next_drop_id)
 	
@@ -102,6 +127,7 @@ func _spawn_next_evolution(position, droppable_id, isPrestiged = false):
 	# into Bumblebee, etc.
 	var droppable_id_to_spawn = droppable_id + 1
 	
+	# If we want to revert the "break a flower" change, get rid of these 3 lines 
 	if droppable_id_to_spawn > _highest_droppable_id and droppable_id_to_spawn < 8:
 		_highest_droppable_id = droppable_id_to_spawn
 		get_highest_droppable_id.emit(_highest_droppable_id)
@@ -218,3 +244,10 @@ func _play_random_rustle():
 			rustle_3.play()
 		_:
 			rustle_1.play()
+
+
+func _on_player__player_holding_droppable(id) -> void:
+	if name_text != null:
+		name_text.text = _Taxonomy_List[id]
+	if description_text != null:
+		description_text.text = _Field_Notes_List[id]
