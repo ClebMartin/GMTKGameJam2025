@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://bpbhwm5mdm2e0"]
+[gd_scene load_steps=49 format=3 uid="uid://bpbhwm5mdm2e0"]
 
 [ext_resource type="Script" uid="uid://dg0mexjv5h77a" path="res://scripts/game.gd" id="1_lbhrr"]
 [ext_resource type="Texture2D" uid="uid://8r2yi3u3yop4" path="res://assets/sprites/background.jpg" id="2_0tnpc"]
@@ -32,6 +32,15 @@
 [ext_resource type="AudioStream" uid="uid://ceqoiposw7k0y" path="res://assets/sounds/foley-leaves-rustle-medium-01.ogg" id="26_qouja"]
 [ext_resource type="AudioStream" uid="uid://d8s6mwg2i17j" path="res://assets/sounds/foley-leaves-rustle-medium-02.ogg" id="27_wljb1"]
 [ext_resource type="AudioStream" uid="uid://dwrqtgwkf0hf6" path="res://assets/sounds/foley-leaves-rustle-medium-03.ogg" id="28_v2yb1"]
+[ext_resource type="AudioStream" uid="uid://chi2geolqxyo5" path="res://assets/sounds/tad1.ogg" id="30_8ool0"]
+[ext_resource type="AudioStream" uid="uid://dcyrru8ydycas" path="res://assets/sounds/tad2.ogg" id="31_pr1ej"]
+[ext_resource type="AudioStream" uid="uid://d4i56ox6rhkpl" path="res://assets/sounds/tad3.ogg" id="32_05nbr"]
+[ext_resource type="AudioStream" uid="uid://cee4uooh1mqj0" path="res://assets/sounds/tad4.ogg" id="33_0sl42"]
+[ext_resource type="AudioStream" uid="uid://dibta2v00vbdk" path="res://assets/sounds/tad5.ogg" id="34_oaba0"]
+[ext_resource type="AudioStream" uid="uid://cg6cp56dmb7uf" path="res://assets/sounds/tad6.ogg" id="35_458eo"]
+[ext_resource type="AudioStream" uid="uid://c365q2vhamhd8" path="res://assets/sounds/tad7.ogg" id="36_h3rex"]
+[ext_resource type="AudioStream" uid="uid://hrod8dll62ul" path="res://assets/sounds/tad8.ogg" id="37_fedci"]
+[ext_resource type="AudioStream" uid="uid://dakhoou0ljfiv" path="res://assets/sounds/tad9.ogg" id="38_8qswn"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_v2yb1"]
 shader = ExtResource("8_qouja")
@@ -89,11 +98,11 @@ region_rect = Rect2(150, 150, 1352.48, 883.744)
 
 [node name="Ground_0_25x" type="Sprite2D" parent="."]
 modulate = Color(0.184314, 0.270588, 0.101961, 0.85098)
-position = Vector2(474, 451)
+position = Vector2(475, 442)
 scale = Vector2(0.847222, 0.847222)
 texture = ExtResource("3_suyxu")
 region_enabled = true
-region_rect = Rect2(0, -36.75, 1167, 233)
+region_rect = Rect2(0, -36.75, 1167, 240.625)
 
 [node name="behindBasket" type="ColorRect" parent="."]
 offset_left = 315.0
@@ -105,8 +114,9 @@ color = Color(0.754425, 0.70996, 0.64893, 1)
 [node name="Basket_Sprite_Shadow" type="Sprite2D" parent="."]
 self_modulate = Color(1, 1, 1, 0.745098)
 material = SubResource("ShaderMaterial_v2yb1")
-position = Vector2(473, 505.5)
-scale = Vector2(0.933333, 0.048421)
+position = Vector2(461.482, 506.489)
+scale = Vector2(0.888866, 0.0882434)
+skew = -1.04545
 texture = ExtResource("2_gee14")
 
 [node name="Basket_Sprite" type="Sprite2D" parent="."]
@@ -199,6 +209,7 @@ scale = Vector2(0.544261, 0.57397)
 texture = ExtResource("8_sgl2t")
 
 [node name="Line1" type="Sprite2D" parent="Description"]
+modulate = Color(0.830919, 0.832531, 0.789236, 1)
 position = Vector2(128.5, 191)
 scale = Vector2(0.279555, 0.632353)
 texture = ExtResource("10_qouja")
@@ -230,6 +241,7 @@ label_settings = SubResource("LabelSettings_sgl2t")
 autowrap_mode = 3
 
 [node name="Line2" type="Sprite2D" parent="Description"]
+modulate = Color(0.831373, 0.831373, 0.788235, 1)
 position = Vector2(120.5, 317)
 scale = Vector2(0.279555, 0.632353)
 texture = ExtResource("10_qouja")
@@ -277,6 +289,11 @@ position = Vector2(830, 154)
 rotation = -1.57079
 scale = Vector2(0.340946, 0.513799)
 texture = ExtResource("8_sgl2t")
+
+[node name="Ui-shape-05" type="Sprite2D" parent="QueueGroup"]
+position = Vector2(831.5, 153.25)
+scale = Vector2(0.553008, 0.522792)
+texture = ExtResource("20_1kice")
 
 [node name="QueueText" type="Label" parent="QueueGroup"]
 offset_left = 775.0
@@ -413,10 +430,41 @@ stream = ExtResource("28_v2yb1")
 volume_db = 0.4
 max_polyphony = 3
 
-[node name="Ui-shape-05" type="Sprite2D" parent="."]
-position = Vector2(831.5, 113.25)
-scale = Vector2(0.553008, 0.522792)
-texture = ExtResource("20_1kice")
+[node name="Tad1" type="AudioStreamPlayer2D" parent="SFX"]
+stream = ExtResource("30_8ool0")
+bus = &"Tad"
+
+[node name="Tad2" type="AudioStreamPlayer2D" parent="SFX"]
+stream = ExtResource("31_pr1ej")
+bus = &"Tad"
+
+[node name="Tad3" type="AudioStreamPlayer2D" parent="SFX"]
+stream = ExtResource("32_05nbr")
+bus = &"Tad"
+
+[node name="Tad4" type="AudioStreamPlayer2D" parent="SFX"]
+stream = ExtResource("33_0sl42")
+bus = &"Tad"
+
+[node name="Tad5" type="AudioStreamPlayer2D" parent="SFX"]
+stream = ExtResource("34_oaba0")
+bus = &"Tad"
+
+[node name="Tad6" type="AudioStreamPlayer2D" parent="SFX"]
+stream = ExtResource("35_458eo")
+bus = &"Tad"
+
+[node name="Tad7" type="AudioStreamPlayer2D" parent="SFX"]
+stream = ExtResource("36_h3rex")
+bus = &"Tad"
+
+[node name="Tad8" type="AudioStreamPlayer2D" parent="SFX"]
+stream = ExtResource("37_fedci")
+bus = &"Tad"
+
+[node name="Tad9" type="AudioStreamPlayer2D" parent="SFX"]
+stream = ExtResource("38_8qswn")
+bus = &"Tad"
 
 [node name="EvolutionWheel" type="Node2D" parent="."]
 position = Vector2(662, 326)
