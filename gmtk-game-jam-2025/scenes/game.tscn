@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://bpbhwm5mdm2e0"]
+[gd_scene load_steps=32 format=3 uid="uid://bpbhwm5mdm2e0"]
 
 [ext_resource type="Script" uid="uid://dg0mexjv5h77a" path="res://scripts/game.gd" id="1_lbhrr"]
 [ext_resource type="Texture2D" uid="uid://8r2yi3u3yop4" path="res://assets/sprites/background.jpg" id="2_0tnpc"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://clbrep7hsqkjj" path="res://assets/sprites/texturePaper.jpg" id="2_iywne"]
 [ext_resource type="PackedScene" uid="uid://igw3ym3x2ynf" path="res://scenes/basket.tscn" id="2_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://ckwxsg8n57wix" path="res://scenes/player.tscn" id="3_lnu2h"]
+[ext_resource type="Texture2D" uid="uid://ct0m8jjprfcse" path="res://assets/sprites/ground@0.25x.png" id="3_suyxu"]
 [ext_resource type="FontFile" uid="uid://bylebo6njjpq" path="res://assets/fonts/OldScientificIllustration.ttf" id="4_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://c2qa0oan4fjgc" path="res://scenes/utils/BackgroundMusic.tscn" id="5_iywne"]
 [ext_resource type="PackedScene" uid="uid://kspneow8828p" path="res://scenes/utils/BackgroundSounds.tscn" id="6_p57ef"]
@@ -51,6 +52,11 @@ self_modulate = Color(1, 1, 1, 0.0980392)
 position = Vector2(458.949, 229)
 scale = Vector2(0.722437, 0.722437)
 texture = ExtResource("2_0tnpc")
+
+[node name="Ground_0_25x" type="Sprite2D" parent="."]
+position = Vector2(481.554, 524)
+scale = Vector2(0.847222, 0.847222)
+texture = ExtResource("3_suyxu")
 
 [node name="behindBasket" type="ColorRect" parent="."]
 offset_left = 315.0
