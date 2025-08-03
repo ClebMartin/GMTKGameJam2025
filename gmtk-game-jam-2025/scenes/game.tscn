@@ -178,15 +178,15 @@ scale = Vector2(0.544261, 0.57397)
 texture = ExtResource("8_sgl2t")
 
 [node name="Line1" type="Sprite2D" parent="Description"]
-position = Vector2(130, 180)
+position = Vector2(128.5, 191)
 scale = Vector2(0.279555, 0.632353)
 texture = ExtResource("10_qouja")
 
 [node name="NameLabel" type="Label" parent="Description"]
-offset_left = 38.0
-offset_top = 150.0
-offset_right = 257.0
-offset_bottom = 188.0
+offset_left = 36.5
+offset_top = 161.0
+offset_right = 255.5
+offset_bottom = 199.0
 theme_override_colors/font_color = Color(0.254902, 0.215686, 0.207843, 1)
 theme_override_colors/font_outline_color = Color(0.254902, 0.215686, 0.207843, 1)
 theme_override_constants/outline_size = 1
@@ -195,30 +195,30 @@ theme_override_font_sizes/font_size = 32
 text = "Genus / Species:"
 
 [node name="NameText" type="Label" parent="Description"]
-offset_left = 37.0
-offset_top = 192.0
-offset_right = 248.0
-offset_bottom = 258.0
+offset_left = 35.0
+offset_top = 199.0
+offset_right = 246.0
+offset_bottom = 265.0
 theme_override_colors/font_color = Color(0.254902, 0.215686, 0.207843, 1)
 theme_override_colors/font_outline_color = Color(0.254902, 0.215686, 0.207843, 1)
 theme_override_constants/outline_size = 1
 theme_override_fonts/font = ExtResource("4_lbhrr")
 theme_override_font_sizes/font_size = 32
-text = "Don't let the flower basket overfill!"
+text = "Don't let the flowers overfill the basket!"
 label_settings = SubResource("LabelSettings_sgl2t")
 autowrap_mode = 3
 
 [node name="Line2" type="Sprite2D" parent="Description"]
-position = Vector2(124, 308)
+position = Vector2(120.5, 317)
 scale = Vector2(0.279555, 0.632353)
 texture = ExtResource("10_qouja")
 flip_h = true
 
 [node name="DescriptionLabel" type="Label" parent="Description"]
-offset_left = 35.0
-offset_top = 277.0
-offset_right = 263.0
-offset_bottom = 315.0
+offset_left = 31.5
+offset_top = 286.0
+offset_right = 259.5
+offset_bottom = 324.0
 theme_override_colors/font_color = Color(0.254902, 0.215686, 0.207843, 1)
 theme_override_colors/font_outline_color = Color(0.254902, 0.215686, 0.207843, 1)
 theme_override_constants/outline_size = 1
@@ -227,10 +227,10 @@ theme_override_font_sizes/font_size = 32
 text = "Field Notes:"
 
 [node name="DescriptionText" type="Label" parent="Description"]
-offset_left = 33.0
-offset_top = 320.0
-offset_right = 246.0
-offset_bottom = 414.0
+offset_left = 32.0
+offset_top = 325.0
+offset_right = 245.0
+offset_bottom = 419.0
 theme_override_colors/font_color = Color(0.254902, 0.215686, 0.207843, 1)
 theme_override_colors/font_outline_color = Color(0.254902, 0.215686, 0.207843, 1)
 theme_override_constants/outline_size = 1

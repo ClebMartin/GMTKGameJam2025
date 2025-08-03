@@ -62,27 +62,8 @@ var PlayerNode
 var _highest_droppable_id = 3
 signal get_highest_droppable_id
 
-var _Taxonomy_List = [
-		"Flower seed",
-		"Flower leaf",
-		"Bellis perennis",
-		"Dianthus caryophyllus",
-		"Lupinus texensis",
-		"Tulipa gesneriana",
-		"Rosa meldomonac",
-		"Helianthus annuus"
-	]
-	
-var _Field_Notes_List = [
-		"Description for Seed",
-		"Description for Leaf",
-		"Description for Daisy",
-		"Description for Carnation",
-		"Description for Bluebonnet",
-		"Description for Tulip",
-		"Description for Rose",
-		"Description for Sunflower",
-	]
+var _Taxonomy_List
+var _Field_Notes_List
 	
 @onready var name_text: Label = $Description/NameText
 @onready var description_text: Label = $Description/DescriptionText
@@ -219,6 +200,28 @@ func _set_up_list():
 		_tulip_img,
 		_rose_img,
 		_sunflower_img
+	]
+	
+	_Taxonomy_List = [
+		"Seed",
+		"Leaf",
+		"Bellis perennis\nDaisy",
+		"Dianthus caryophyllus\nCarnation",
+		"Lupinus texensis\nBluebonnet",
+		"Tulipa gesneriana\nTulip",
+		"Rosa meldomonac\nRose",
+		"Helianthus annuus\nSunflower"
+	]
+	
+	_Field_Notes_List = [
+		"Extravagance or the potential for new beginnings",
+		"growth, renewal, and hope",
+		"purity, innocence, and new beginnings",
+		"fascination, love, and distinction",
+		"admiration, sacrifice, and resilience",
+		"perfect love, passion, and new beginnings",
+		"love, beauty, and passion",
+		"happiness, adoration, and loyalty",
 	]
 	
 func _play_random_pop():
