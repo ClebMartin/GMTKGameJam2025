@@ -109,9 +109,9 @@ func _spawn_next_evolution(position, droppable_id, isPrestiged = false):
 	var droppable_id_to_spawn = droppable_id + 1
 	
 	# If we want to revert the "break a flower" change, get rid of these 3 lines 
-	if droppable_id_to_spawn > _highest_droppable_id and droppable_id_to_spawn < 8:
-		_highest_droppable_id = droppable_id_to_spawn
-		get_highest_droppable_id.emit(_highest_droppable_id)
+	#if droppable_id_to_spawn > _highest_droppable_id and droppable_id_to_spawn < 8:
+	#	_highest_droppable_id = droppable_id_to_spawn
+	#	get_highest_droppable_id.emit(_highest_droppable_id)
 	
 	if isPrestiged and droppable_id_to_spawn < 8:
 		droppable_id_to_spawn += 8
