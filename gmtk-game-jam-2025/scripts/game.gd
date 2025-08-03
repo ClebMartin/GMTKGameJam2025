@@ -50,6 +50,8 @@ var _droppable_list = [_seed_scene, _leaf_scene, _daisy_scene, _carnation_scene,
 var _score = 0
 var _drop_value = 1 # score addition for everytime you successfully drop a droppable
 
+@onready var BestScoreLabel: Label = $BestScoreGroup/BestScoreLabel
+
 @onready var NumFlowerLabel = $NumFlowerGroup/NumFlowerLabel
 var _num_flowers_dropped = 0
 
@@ -70,6 +72,7 @@ func _ready() -> void:
 	_next_droppable.show()
 	
 	ScoreLabel.text = str(_score)
+	BestScoreLabel.text = str(SaveLoad.highest_record)
 
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("close"):
@@ -132,6 +135,11 @@ func _get_score():
 func _set_score(value):
 	_score += value
 	ScoreLabel.text = str(_score)
+	
+	#high score check
+	if _score > SaveLoad.highest_record:
+		SaveLoad.highest_record = _score
+		BestScoreLabel.text = str(_score)
 
 func _reset_score():
 	# This isn't called anywhere yet

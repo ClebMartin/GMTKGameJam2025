@@ -15,6 +15,10 @@ run/main_scene="uid://vbsrvkmcel2v"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+SaveLoad="*res://scripts/save_load.gd"
+
 [display]
 
 window/size/viewport_width=960
