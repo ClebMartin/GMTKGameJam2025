@@ -205,12 +205,12 @@ func _set_up_list():
 	_Taxonomy_List = [
 		"Seed",
 		"Leaf",
-		"Bellis perennis\nDaisy",
-		"Dianthus caryophyllus\nCarnation",
-		"Lupinus texensis\nBluebonnet",
-		"Tulipa gesneriana\nTulip",
-		"Rosa meldomonac\nRose",
-		"Helianthus annuus\nSunflower"
+		"Bellis perennis\n(Daisy)",
+		"Dianthus caryophyllus\n(Carnation)",
+		"Lupinus texensis\n(Bluebonnet)",
+		"Tulipa gesneriana\n(Tulip)",
+		"Rosa meldomonac\n(Rose)",
+		"Helianthus annuus\n(Sunflower)"
 	]
 	
 	_Field_Notes_List = [
