@@ -34,9 +34,12 @@ var _waiting_to_spawn = false
 
 const FOLLOW_SPEED = 3.8
 
+#default to highest droppable that you can drop
+var _highest_droppable_id_achieved = 3
+
 func _pick_random_droppable():
 	# only return index for seed, leaf, daisy, or carnation.
-	return _rng.randi_range(0, 3)
+	return _rng.randi_range(0, _highest_droppable_id_achieved)
 	
 func _spawn_new_droppable():
 	_current_droppable_id = _next_droppable_id
@@ -52,11 +55,6 @@ func _ready():
 
 func _physics_process(delta):
 	var target_x = get_global_mouse_position().x
-	
-	# if Input.is_action_pressed("left"):
-	#	target_x = position.x - (FOLLOW_SPEED * 10) # Use a speed multiplier for keyboard
-	# elif Input.is_action_pressed("right"):
-	#	target_x = position.x + (FOLLOW_SPEED * 10)
 
 	var droppable_half_width = (_current_droppable.texture.get_width() * _current_droppable.scale.x) / 2
 	var clamp_min = 330 + droppable_half_width
@@ -94,3 +92,6 @@ func _set_up_list():
 		_rose_img,
 		_sunflower_img
 	]
+
+func _on_main_get_highest_droppable_id(id) -> void:
+	_highest_droppable_id_achieved = id

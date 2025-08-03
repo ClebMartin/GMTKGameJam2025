@@ -57,6 +57,9 @@ var PlayerNode
 
 @onready var _rng = RandomNumberGenerator.new()
 
+var _highest_droppable_id = 3
+signal get_highest_droppable_id
+
 func _ready() -> void:
 	_set_up_list()
 	PlayerNode = get_node("Player")
@@ -95,6 +98,10 @@ func _spawn_next_evolution(position, droppable_id, isPrestiged = false):
 	# This check will need to be more robust so that sunflower doesn't turn
 	# into Bumblebee, etc.
 	var droppable_id_to_spawn = droppable_id + 1
+	
+	if droppable_id_to_spawn > _highest_droppable_id and droppable_id_to_spawn < 8:
+		_highest_droppable_id = droppable_id_to_spawn
+		get_highest_droppable_id.emit(_highest_droppable_id)
 	
 	if isPrestiged and droppable_id_to_spawn < 8:
 		droppable_id_to_spawn += 8

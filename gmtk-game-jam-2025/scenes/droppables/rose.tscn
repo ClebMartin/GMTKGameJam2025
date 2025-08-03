@@ -18,11 +18,12 @@ max_contacts_reported = 1
 script = ExtResource("1_62qcp")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-1.43051e-06, 0.979824)
+position = Vector2(12, 24)
 scale = Vector2(0.21843, 0.21843)
 texture = ExtResource("2_62qcp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(12, 24)
 shape = SubResource("CapsuleShape2D_p7eyx")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
